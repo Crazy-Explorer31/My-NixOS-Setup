@@ -8,6 +8,7 @@ if find "$DIR" -type f -mmin -1 | grep -q .; then
     # Если есть изменения, спрашиваем пользователя
     read -p "Do you want to rebuild system now? (y/n): " answer
     if [[ "$answer" == "y" ]]; then
+	git add .
         # Запускаем команду для сборки системы
 	echo "Rebuilding..."
         sudo nixos-rebuild switch --flake "$DIR"

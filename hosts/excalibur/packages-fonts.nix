@@ -159,6 +159,7 @@
 	v2ray
 	v2raya
 	bat
+	ventoy-full-gtk
     #-------------------------------------MY PACKAGES--------------------------------------------------
 
     #waybar  # if wanted experimental next line
