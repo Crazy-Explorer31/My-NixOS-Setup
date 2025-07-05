@@ -1,51 +1,56 @@
 # 💫 https://github.com/JaKooLit 💫 #
 
 {
-  description = "KooL's NixOS-Hyprland"; 
-  	
+  description = "KooL's NixOS-Hyprland";
+
   inputs = {
   	nixpkgs.url = "nixpkgs/nixos-unstable";
-	#hyprland.url = "github:hyprwm/Hyprland"; # hyprland development
-	distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
-	ags.url = "github:aylur/ags/v1"; # aylurs-gtk-shell-v1
-	home-manager = {
+    #hyprland.url = "github:hyprwm/Hyprland"; # hyprland development
+	  distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
+		ags.url = "github:aylur/ags/v1"; # aylurs-gtk-shell-v1
+	  home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-  	};
+		sddm-sugar-candy = {
+      url = "github:MacKenzie779/sddm-sugar-candy-nix";  # URL sddm-темы
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
-  outputs = 
-	inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs =
+    inputs@{ self, nixpkgs, home-manager, ... }:
     	let
       system = "x86_64-linux";
       host = "excalibur";
       username = "stepan";
 
-    pkgs = import nixpkgs {
-       	inherit system;
-       	config = {
-       	allowUnfree = true;
-       	};
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+         	allowUnfree = true;
+        };
       };
-    in
-    {
-	nixosConfigurations = {
-      "${host}" = nixpkgs.lib.nixosSystem rec {
-		specialArgs = { 
-			inherit system;
-			inherit inputs;
-			inherit username;
-			inherit host;
-			};
-	   		modules = [ 
-				./hosts/${host}/config.nix 
-				inputs.distro-grub-themes.nixosModules.${system}.default
-				];
-			};
-	};
-	homeConfigurations.stepan = home-manager.lib.homeManagerConfiguration {
-		pkgs = nixpkgs.legacyPackages.${system};
-		modules = [ ./home.nix ];
-	};
-	};
+      in
+      {
+       	nixosConfigurations = {
+            "${host}" = nixpkgs.lib.nixosSystem rec {
+            specialArgs = {
+         			inherit system;
+         			inherit inputs;
+         			inherit username;
+         			inherit host;
+     			};
+      	   		modules = [
+        				./hosts/${host}/config.nix
+        				inputs.distro-grub-themes.nixosModules.${system}.default
+                inputs.sddm-sugar-candy.nixosModules.default
+        				];
+     			};
+       	};
+       	homeConfigurations.stepan = home-manager.lib.homeManagerConfiguration {
+      		pkgs = nixpkgs.legacyPackages.${system};
+      		modules = [ ./home.nix ];
+       	};
+    	};
 }

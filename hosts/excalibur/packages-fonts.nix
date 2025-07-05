@@ -30,11 +30,11 @@
     cpufrequtils
     duf
     eza
-    ffmpeg   
+    ffmpeg
     glib #for gsettings to work
     gsettings-qt
     git
-    killall  
+    killall
     libappindicator
     libnotify
     openssl #required by Rainbow borders
@@ -47,9 +47,9 @@
     fastfetch
     (mpv.override {scripts = [mpvScripts.mpris];}) # with tray
     #ranger
-      
+
     # Hyprland Stuff
-    ags # note: defined at flake.nix to download and install ags v1    
+    ags # note: defined at flake.nix to download and install ags v1
     btop
     brightnessctl # for brightness control
     cava
@@ -59,7 +59,7 @@
     gtk-engine-murrine #for gtk themes
     hyprcursor # requires unstable channel
     hypridle # requires unstable channel
-    imagemagick 
+    imagemagick
     inxi
     jq
     kitty
@@ -159,7 +159,7 @@
 	v2ray
 	v2raya
 	bat
-	ventoy-full-gtk
+	elegant-sddm
     #-------------------------------------MY PACKAGES--------------------------------------------------
 
     #waybar  # if wanted experimental next line

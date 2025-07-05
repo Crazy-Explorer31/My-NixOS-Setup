@@ -230,19 +230,25 @@
 
   # Services to start
   services = {
+    displayManager.sddm = {
+      enable = true;
+      theme = "Elegant";
+      settings = {
+          General = {
+            Numlock = "on";  # Включить Num Lock при старте
+          };
+      };
+    };
     xserver = {
-      enable = false;
-      # displayManager.sddm.enable = true;
-      # displayManager.sddm.theme = "sugar-candy";
+      enable = true;
       xkb = {
         layout = "${keyboardLayout},ru";
         variant = "";
       };
-
     };
 
     greetd = {
-      enable = true;
+      enable = false;
       vt = 3;
       settings = {
         default_session = {
