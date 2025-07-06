@@ -160,6 +160,7 @@
 	v2raya
 	bat
 	elegant-sddm
+	vscodium
     #-------------------------------------MY PACKAGES--------------------------------------------------
 
     #waybar  # if wanted experimental next line

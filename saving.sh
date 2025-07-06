@@ -1,18 +1,34 @@
 #!/bin/bash
 
+set -e
+
 # Папка для проверки изменений
 DIR=/home/stepan/my-nixos/
+cd "$DIR"
 
-# Проверяем, были ли изменены файлы в папке менее чем минуту назад
-if find "$DIR" -type f -mmin -1 | grep -q .; then
-    # Если есть изменения, спрашиваем пользователя
+# Проверяем, есть ли незакоммиченные изменения в настройке системы
+if ! [ -z "$(git status --porcelain)" ]; then
+    # Если есть изменения, спрашиваем пользователя о необходимости пересборки системы
     read -p "Do you want to rebuild system now? (y/n): " answer
     if [[ "$answer" == "y" ]]; then
+
+	# По необходимости обновляем flake.lock с зависимостями
+	nix flake lock --commit-lock-file
+
+	# Коммитим конфиги
 	git add .
-        # Запускаем команду для сборки системы
+	read -p "Print new commit message (or nothing to do --amend)" commit_message
+	if [ -z "$commit_message" ]; then
+	    git commit --amend
+	else
+	    git commit -m "$commit_message"
+	fi
+
+        # Пересбираем систему
 	echo "Rebuilding..."
         sudo nixos-rebuild switch --flake "$DIR"
 	echo "Rebuilded successfully!"
+
     else
         echo "Exiting without rebuilding"
     fi
