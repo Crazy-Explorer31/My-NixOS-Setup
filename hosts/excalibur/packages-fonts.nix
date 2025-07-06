@@ -161,6 +161,7 @@
 	bat
 	elegant-sddm
 	vscodium
+  alejandra
     #-------------------------------------MY PACKAGES--------------------------------------------------
 
     #waybar  # if wanted experimental next line
