@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 # Папка для проверки изменений
 DIR=/home/stepan/my-nixos/
 cd "$DIR"
@@ -17,7 +15,7 @@ if ! [ -z "$(git status --porcelain)" ]; then
 
 	# Коммитим конфиги
 	git add .
-	read -p "Print new commit message (or nothing to do --amend)" commit_message
+	read -p "Print new commit message (or nothing to do --amend): " commit_message
 	if [ -z "$commit_message" ]; then
 	    git commit --amend
 	else
