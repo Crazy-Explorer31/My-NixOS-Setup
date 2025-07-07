@@ -29,9 +29,11 @@ in {
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
+  systemd.services.systemd-vconsole-setup.enable = false;
   # BOOT related stuff
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest; # Kernel
+    kernelPackages = pkgs.linuxPackages_zen; # zen Kernel
+    # kernelPackages = pkgs.linuxPackages_latest; # Kernel
 
     kernelParams = [
       "systemd.mask=systemd-vconsole-setup.service"
@@ -57,7 +59,7 @@ in {
 
     ## BOOT LOADERS: NOT USE ONLY 1. either systemd or grub
     # Bootloader SystemD
-    # loader.systemd-boot.enable = true;
+    loader.systemd-boot.enable = false;
 
     loader.efi = {
       efiSysMountPoint = "/boot"; #this is if you have separate /efi partition
@@ -127,6 +129,20 @@ in {
   time.timeZone = "Asia/Krasnoyarsk";
 
   # Select internationalisation properties. # TODO: CHANGE TO RUSSIAN!!!
+  # i18n.defaultLocale = "en_US.UTF-8";
+
+  # i18n.extraLocaleSettings = {
+  #   LC_ADDRESS = "en_US.UTF-8";
+  #   LC_IDENTIFICATION = "en_US.UTF-8";
+  #   LC_MEASUREMENT = "en_US.UTF-8";
+  #   LC_MONETARY = "en_US.UTF-8";
+  #   LC_NAME = "en_US.UTF-8";
+  #   LC_NUMERIC = "en_US.UTF-8";
+  #   LC_PAPER = "en_US.UTF-8";
+  #   LC_TELEPHONE = "en_US.UTF-8";
+  #   LC_TIME = "en_US.UTF-8";
+  # };
+
   i18n.defaultLocale = "ru_RU.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -272,7 +288,7 @@ in {
       wireplumber.enable = true;
     };
 
-    pulseaudio.enable = false; #unstable
+    # pulseaudio.enable = false; #unstable # maybe remove
     udev.enable = true;
     envfs.enable = true;
     dbus.enable = true;
@@ -354,6 +370,7 @@ in {
   # Extra Logitech Support
   hardware.logitech.wireless.enable = false;
   hardware.logitech.wireless.enableGraphical = false;
+  services.pulseaudio.enable = false; # stable branch
 
   # Bluetooth
   hardware = {

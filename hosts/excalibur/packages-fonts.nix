@@ -22,16 +22,19 @@
       ]
   );
 in {
+  nixpkgs.config.allowUnfree = true; # maybe remove
   environment.systemPackages =
     (with pkgs; [
       # System Packages
+      bc
       baobab
       btrfs-progs
       clang
       curl
       cpufrequtils
       duf
-      eza
+      eza # maybe remove
+      findutils
       ffmpeg
       glib #for gsettings to work
       gsettings-qt
@@ -51,29 +54,35 @@ in {
       #ranger
 
       # Hyprland Stuff
-      ags # note: defined at flake.nix to download and install ags v1
+      #ags # note: defined at flake.nix to download and install ags v1
+      # Buuild AGS v1 from source
+      inputs.ags.packages.${pkgs.system}.default
       btop
       brightnessctl # for brightness control
       cava
       eog
+      cliphist
+      loupe
       gnome-system-monitor
       grim
       gtk-engine-murrine #for gtk themes
-      hyprcursor # requires unstable channel
-      hypridle # requires unstable channel
+      hyprcursor
+      hypridle
       imagemagick
       inxi
       jq
       kitty
       libsForQt5.qtstyleplugin-kvantum #kvantum
       networkmanagerapplet
-      nwg-look # requires unstable channel
-      nvtopPackages.panthor
+      nwg-displays
+      nwg-look
+      nvtopPackages.full
+      nvtopPackages.panthor # maybe remove
       pamixer
       pavucontrol
       playerctl
       polkit_gnome
-      pyprland
+      # pyprland # maybe remove
       libsForQt5.qt5ct
       kdePackages.qt6ct
       kdePackages.qtwayland
@@ -90,14 +99,12 @@ in {
       xarchiver
       yad
       yt-dlp
-      cliphist
       gradle
       home-manager
       #-------------------------------------MY PACKAGES--------------------------------------------------
 
-      #thunar-archive-plugin-0.3.1
-      #file-roll
-      #file-roller
+      xfce.thunar-archive-plugin
+      file-roller
       (pkgs.xfce.thunar.override {thunarPlugins = [pkgs.xfce.thunar-archive-plugin];})
       evince
       vscode
@@ -127,7 +134,7 @@ in {
       cmake
       gcc
       gdb
-      nodejs_23
+      nodejs_24
       obs-studio
       gmp
       chromedriver
@@ -175,15 +182,32 @@ in {
 
   # FONTS
   fonts.packages = with pkgs; [
-    noto-fonts
+    dejavu_fonts
     fira-code
+    fira-code-symbols
+    font-awesome
+    hackgen-nf-font
+    ibm-plex
+    inter
+    jetbrains-mono
+    material-icons
+    maple-mono.NF
+    minecraftia
+    nerd-fonts.im-writing
+    nerd-fonts.blex-mono
+    noto-fonts
     noto-fonts-emoji
     noto-fonts-cjk-sans
-    jetbrains-mono
-    font-awesome
+    noto-fonts-cjk-serif
+    noto-fonts-monochrome-emoji
+    powerline-fonts
+    roboto
+    roboto-mono
+    symbola
     terminus_font
+    victor-mono
     #(nerdfonts.override {fonts = ["JetBrainsMono"];}) # stable banch
-    nerd-fonts.jetbrains-mono # unstable
-    nerd-fonts.fira-code # unstable
+    # nerd-fonts.jetbrains-mono # unstable
+    # nerd-fonts.fira-code # unstable
   ];
 }

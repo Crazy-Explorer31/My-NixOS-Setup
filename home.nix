@@ -6,7 +6,7 @@
   home = {
     username = "stepan";
     homeDirectory = "/home/stepan";
-    stateVersion = "25.05";
+    stateVersion = "24.11";
     packages = with pkgs; [
       htop
     ];

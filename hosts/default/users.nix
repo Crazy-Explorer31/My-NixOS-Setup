@@ -8,6 +8,7 @@
   inherit (import ./variables.nix) gitUsername;
 in {
   users = {
+    mutableUsers = true;
     users."${username}" = {
       homeMode = "755";
       isNormalUser = true;
@@ -42,7 +43,7 @@ in {
       ohMyZsh = {
         enable = true;
         plugins = ["git"];
-        theme = "funky";
+        theme = "agnoster";
       };
 
       autosuggestions.enable = true;
