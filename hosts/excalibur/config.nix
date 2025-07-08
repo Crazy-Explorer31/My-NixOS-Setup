@@ -252,6 +252,7 @@ in {
           Numlock = "on"; # Включить Num Lock при старте
         };
       };
+      wayland.enable = true; # Для Wayland-сессий
     };
     xserver = {
       enable = true;
@@ -450,6 +451,7 @@ in {
 
   # For Electron apps to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.variables.PATH = ["/run/current-system/sw/bin"];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
