@@ -253,6 +253,10 @@ in {
         };
       };
       wayland.enable = true; # Для Wayland-сессий
+      setupScript = ''
+        numlockx on  # Включает NumLock перед запуском SDDM
+        exec sddm
+      '';
     };
     xserver = {
       enable = true;
