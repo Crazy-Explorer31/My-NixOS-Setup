@@ -172,7 +172,6 @@ in {
       vscodium
       alejandra
       direnv
-      numlockx
       #-------------------------------------MY PACKAGES--------------------------------------------------
 
       #waybar  # if wanted experimental next line
