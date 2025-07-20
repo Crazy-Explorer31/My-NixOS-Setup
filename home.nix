@@ -6,17 +6,17 @@
   home = {
     username = "stepan";
     homeDirectory = "/home/stepan";
-    stateVersion = "24.11";
+    stateVersion = "25.05";
     packages = with pkgs; [
       htop
     ];
   };
 
   # ---------------------------------GTK-------------------------------------
-  gtk.enable = true;
+  #gtk.enable = true;
 
-  gtk.cursorTheme.package = pkgs.bibata-cursors;
-  gtk.cursorTheme.name = "Bibata-Modern-Ice";
+  #gtk.cursorTheme.package = pkgs.bibata-cursors;
+  #gtk.cursorTheme.name = "Bibata-Modern-Ice";
 
   # gtk.theme.package = pkgs.adw-gtk3;
   # gtk.theme.name = "adw-gtk3";

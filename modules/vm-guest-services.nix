@@ -1,13 +1,11 @@
 # 💫 https://github.com/JaKooLit 💫 #
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
-with lib; let
+
+{ lib, pkgs, config, ... }:
+with lib;
+let
   cfg = config.vm.guest-services;
-in {
+in
+{
   options.vm.guest-services = {
     enable = mkEnableOption "Enable Virtual Machine Guest Services";
   };
