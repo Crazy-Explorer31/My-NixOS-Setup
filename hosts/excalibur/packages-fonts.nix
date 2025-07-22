@@ -169,6 +169,7 @@ in {
 				alejandra
 				direnv
 				krabby
+				home-manager
 				#-------------------------------------MY PACKAGES--------------------------------------------------
 
 				#waybar  # if wanted experimental next line
