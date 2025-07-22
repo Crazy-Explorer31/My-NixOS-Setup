@@ -345,15 +345,17 @@ in {
 		defaultNetwork.settings.dns_enabled = false;
 	};
 
-	systemd.user.services.wlsunset = {
-		enable = true;
-		description = "Night light for Wayland (wlsunset)";
-		serviceConfig = {
-			ExecStart = "${pkgs.wlsunset}/bin/wlsunset -t 3500 -T 6500 -l 56.0 -L 92.8";
-			Restart = "always";
-		};
-		wantedBy = ["graphical-session.target"];
-	};
+	#systemd.user.services.wlsunset = {
+	#	enable = true;
+	#	description = "Night light for Wayland (wlsunset)";
+	#	serviceConfig = {
+	#		ExecStart = "/run/current-system/sw/bin/wlsunset -t 3500 -T 6500 -l 56.0 -L 92.8";
+	#		Restart = "always";
+	#	};
+	#	wantedBy = ["graphical-session.target"];
+	#};
+
+	
 
 	# OpenGL
 	hardware.graphics = {

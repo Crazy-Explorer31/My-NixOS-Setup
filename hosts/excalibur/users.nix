@@ -52,11 +52,11 @@ in {
 			promptInit = ''
 				      fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
-				prompt_context() {
-				  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-				    prompt_segment black blue "%B%U%n%u%b@%m"
-				  fi
-				}
+					prompt_context() {
+					  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+						prompt_segment black blue "%B%n@%m%b"
+					  fi
+					}
 
 				      #pokemon colorscripts like. Make sure to install krabby package
 				      #krabby random --no-mega --no-gmax --no-regional --no-title -s;

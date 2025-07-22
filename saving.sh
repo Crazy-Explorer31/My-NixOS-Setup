@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Папка для проверки изменений
-DIR=/home/stepan/my-nixos/
+DIR=/home/stepan/my-NixOS/
 cd "$DIR"
 
 # Проверяем, есть ли незакоммиченные изменения в настройке системы
