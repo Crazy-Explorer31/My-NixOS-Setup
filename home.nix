@@ -12,6 +12,25 @@
 		];
 	};
 
+	systemd.user = {
+	  services.weather-updater = {
+		Unit.Description = "Weather Update Service";
+		Service = {
+		  Type = "oneshot";
+		  ExecStart = "${pkgs.python3}/bin/python ${config.home.homeDirectory}/.config/hypr/UserScripts/WeatherNew.py";
+		};
+	  };
+
+	  timers.weather-updater = {
+		Unit.Description = "Run weather update every 15 minutes";
+		Timer = {
+		  OnCalendar = "*:0/15";
+		  Persistent = true;
+		};
+		Install.WantedBy = ["timers.target"];
+	  };
+	};
+
 	# ---------------------------------GTK-------------------------------------
 	#gtk.enable = true;
 
