@@ -271,6 +271,12 @@ in {
 		};
 	};
 
+	# V2RAY SETUP
+	services.v2ray = {
+		enable = true;
+		configFile = "/etc/v2raya/config.json";
+	};
+
 	virtualisation.docker.enable = true;
 
 	# zram

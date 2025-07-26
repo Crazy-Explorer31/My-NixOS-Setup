@@ -172,7 +172,7 @@ in {
 				home-manager
 				
 				#-------------------------------------FOR HASKELL--------------------------------------------------
-				haskellPackages.ghcup
+				# haskellPackages.ghcup
 				#-------------------------------------MY PACKAGES--------------------------------------------------
 
 				#waybar  # if wanted experimental next line
