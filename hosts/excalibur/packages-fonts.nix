@@ -171,8 +171,9 @@ in {
 				krabby
 				home-manager
 				
+				
 				#-------------------------------------FOR HASKELL--------------------------------------------------
-				# haskellPackages.ghcup
+				ghc
 				#-------------------------------------MY PACKAGES--------------------------------------------------
 
 				#waybar  # if wanted experimental next line
