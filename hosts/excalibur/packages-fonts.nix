@@ -171,11 +171,12 @@ in {
 				krabby
 				home-manager
 				obsidian
-				fourmolu
 				
 				
 				#-------------------------------------FOR HASKELL--------------------------------------------------
 				ghc
+				fourmolu
+				haskell-language-server
 				#-------------------------------------MY PACKAGES--------------------------------------------------
 
 				#waybar  # if wanted experimental next line
