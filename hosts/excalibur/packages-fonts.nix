@@ -171,6 +171,7 @@ in {
 				krabby
 				home-manager
 				obsidian
+				openshot-qt
 				
 				
 				#-------------------------------------FOR HASKELL--------------------------------------------------
