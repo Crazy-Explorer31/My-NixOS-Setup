@@ -172,6 +172,7 @@ in {
 				home-manager
 				obsidian
 				openshot-qt
+				blender
 				
 				
 				#-------------------------------------FOR HASKELL--------------------------------------------------
