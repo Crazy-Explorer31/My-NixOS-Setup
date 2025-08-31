@@ -22,6 +22,7 @@ in {
 				"video"
 				"input"
 				"audio"
+				"render"
 			];
 
 			# define user packages here

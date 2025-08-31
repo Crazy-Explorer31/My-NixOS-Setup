@@ -174,8 +174,19 @@ in {
 				openshot-qt
 				blender
 				davinci-resolve
-				
-				
+
+				# FOR DAVINCI-RESOLVE
+				ffmpeg-full
+				# Дополнительные библиотеки
+				libva
+				libvdpau
+				vaapiVdpau
+				# Аудио кодеки
+				libopus
+				libvorbis
+				libsndfile
+				vivaldi-ffmpeg-codecs
+				openh264
 				#-------------------------------------FOR HASKELL--------------------------------------------------
 				ghc
 				fourmolu

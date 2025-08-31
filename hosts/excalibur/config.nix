@@ -395,6 +395,12 @@ in {
 
 	# For Electron apps to use wayland
 	environment.sessionVariables.NIXOS_OZONE_WL = "1";
+	environment.sessionVariables = {
+		LIBVA_DRIVER_NAME = "nvidia";
+		VDPAU_DRIVER = "va_gl";
+		GBM_BACKEND = "nvidia-drm";
+		__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+	};
 
 	# Open ports in the firewall.
 	# networking.firewall.allowedTCPPorts = [ ... ];
