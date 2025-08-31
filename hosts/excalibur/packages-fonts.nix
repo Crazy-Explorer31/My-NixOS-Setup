@@ -173,6 +173,7 @@ in {
 				obsidian
 				openshot-qt
 				blender
+				davinci-resolve
 				
 				
 				#-------------------------------------FOR HASKELL--------------------------------------------------
