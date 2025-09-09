@@ -174,8 +174,11 @@ in {
 				openshot-qt
 				blender
 				davinci-resolve
+				collabora-online
+				onlyoffice-desktopeditors
+				libreoffice-qt6-fresh
 
-				# FOR DAVINCI-RESOLVE
+				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
 				# Дополнительные библиотеки
 				libva
