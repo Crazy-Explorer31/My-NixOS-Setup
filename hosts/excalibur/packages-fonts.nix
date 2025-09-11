@@ -177,6 +177,7 @@ in {
 				collabora-online
 				onlyoffice-desktopeditors
 				libreoffice-qt6-fresh
+				gephi
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
