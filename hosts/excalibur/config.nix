@@ -130,7 +130,7 @@ in {
 
 	#https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 	# time.timeZone = "Asia/Krasnoyarsk"; # Set local timezone
-	time.timeZone = "Asia/Moscow"; # Set local timezone
+	time.timeZone = "Asia/Omsk"; # Set local timezone
 
 	# Select internationalisation properties.
 
