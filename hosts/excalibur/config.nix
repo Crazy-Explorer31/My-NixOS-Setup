@@ -126,10 +126,11 @@ in {
 	};
 
 	# Set your time zone.
-	services.automatic-timezoned.enable = true; #based on IP location
+	# services.automatic-timezoned.enable = true; #based on IP location
 
 	#https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-	#time.timeZone = "Asia/Krasnoyarsk"; # Set local timezone
+	# time.timeZone = "Asia/Krasnoyarsk"; # Set local timezone
+	time.timeZone = "Asia/Moscow"; # Set local timezone
 
 	# Select internationalisation properties.
 
