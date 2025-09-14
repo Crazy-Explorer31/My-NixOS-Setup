@@ -178,6 +178,7 @@ in {
 				onlyoffice-desktopeditors
 				libreoffice-qt6-fresh
 				gephi
+				xorg.xhost
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
