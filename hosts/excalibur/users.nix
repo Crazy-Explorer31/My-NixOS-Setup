@@ -23,6 +23,7 @@ in {
 				"input"
 				"audio"
 				"render"
+				"docker"
 			];
 
 			# define user packages here
