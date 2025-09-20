@@ -33,10 +33,13 @@ in {
 
 		kernelParams = [
 			"systemd.mask=systemd-vconsole-setup.service"
+			"drm.nouveau.modeset=1"
 			"systemd.mask=dev-tpmrm0.device" #this is to mask that stupid 1.5 mins systemd bug
 			"nowatchdog"
 			"modprobe.blacklist=sp5100_tco" #watchdog for AMD
 			"modprobe.blacklist=iTCO_wdt" #watchdog for Intel
+			"quiet" # added for plymouth
+			"splash"
 		];
 
 		# This is for OBS Virtual Cam Support
@@ -62,7 +65,7 @@ in {
 			canTouchEfiVariables = true;
 		};
 
-		loader.timeout = 1;
+		# loader.timeout = 1;
 
 		# Bootloader GRUB
 		loader.grub = {
@@ -95,7 +98,22 @@ in {
 			magicOrExtension = ''\x7fELF....AI\x02'';
 		};
 
-		plymouth.enable = true;
+		plymouth = {
+			enable = true;
+			theme = "hexagon_red";
+			themePackages = with pkgs; [
+				adi1090x-plymouth-themes
+			];
+		};
+
+		# Enable "Silent boot"
+		consoleLogLevel = 3;
+		initrd.verbose = false;
+		# Hide the OS choice for bootloaders.
+		# It's still possible to open the bootloader list by pressing any key
+		# It will just not appear on screen unless a key is pressed
+		loader.timeout = 0;
+		initrd.systemd.enable = true;
 	};
 
 	# GRUB Bootloader theme. Of course you need to enable GRUB above.. duh! and also, enable it on flake.nix

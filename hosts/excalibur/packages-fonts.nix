@@ -180,6 +180,8 @@ in {
 				gephi
 				xorg.xhost
 				feh
+				plymouth
+				adi1090x-plymouth-themes
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
