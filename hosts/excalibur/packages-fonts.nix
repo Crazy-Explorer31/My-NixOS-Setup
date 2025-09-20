@@ -179,6 +179,7 @@ in {
 				libreoffice-qt6-fresh
 				gephi
 				xorg.xhost
+				feh
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
