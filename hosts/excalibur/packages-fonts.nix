@@ -148,6 +148,8 @@ in {
 				wineWow64Packages.stableFull
 				wineWow64Packages.waylandFull
 				winetricks
+				wine64
+				wineWow64Packages.full
 				bottles
 				gsl
 				ninja
