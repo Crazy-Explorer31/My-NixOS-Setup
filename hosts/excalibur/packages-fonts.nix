@@ -184,6 +184,7 @@ in {
 				feh
 				plymouth
 				adi1090x-plymouth-themes
+				cabextract
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
