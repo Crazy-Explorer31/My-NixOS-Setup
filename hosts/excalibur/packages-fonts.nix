@@ -185,7 +185,7 @@ in {
 				plymouth
 				adi1090x-plymouth-themes
 				cabextract
-				proton-qt
+				protonup-qt
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
