@@ -129,8 +129,8 @@ in {
 		nvidia.enable = true;
 		nvidia-prime = {
 			enable = false;
-			intelBusID = "";
-			nvidiaBusID = "";
+			amdgpuBusID = "PCI:5:0:0";
+			nvidiaBusID = "PCI:1:0:0";
 		};
 	};
 	vm.guest-services.enable = false;
