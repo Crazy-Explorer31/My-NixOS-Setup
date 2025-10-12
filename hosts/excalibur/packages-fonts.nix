@@ -187,6 +187,8 @@ in {
 				cabextract
 				protonup-qt
 				steam
+				vulkan-tools
+    			wineWowPackages.staging
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
