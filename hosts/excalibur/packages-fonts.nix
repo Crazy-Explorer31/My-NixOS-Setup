@@ -189,6 +189,7 @@ in {
 				steam
 				vulkan-tools
     			wineWowPackages.staging
+				tectonic
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
