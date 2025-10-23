@@ -192,6 +192,7 @@ in {
 				tectonic
 				# mlocate # longer...
 				plocate
+				pomodoro-gtk
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
