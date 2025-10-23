@@ -239,6 +239,12 @@ in {
 
 		gnome.gnome-keyring.enable = true;
 
+		locate = {
+			enable = true;
+			package = pkgs.plocate;  # более быстрая версия
+			interval = "hourly";     # обновлять ежечасно
+		};
+
 		#printing = {
 		#  enable = false;
 		#  drivers = [

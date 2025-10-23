@@ -190,6 +190,8 @@ in {
 				vulkan-tools
     			wineWowPackages.staging
 				tectonic
+				# mlocate # longer...
+				plocate
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
