@@ -193,6 +193,7 @@ in {
 				# mlocate # longer...
 				plocate
 				pomodoro-gtk
+				gamescope-wsi
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
