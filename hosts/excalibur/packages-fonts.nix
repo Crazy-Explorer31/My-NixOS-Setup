@@ -194,6 +194,7 @@ in {
 				plocate
 				pomodoro-gtk
 				gamescope-wsi
+				inputs.woomer.packages.${system}.default
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
