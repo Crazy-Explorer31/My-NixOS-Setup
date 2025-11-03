@@ -195,6 +195,8 @@ in {
 				pomodoro-gtk
 				gamescope-wsi
 				inputs.woomer.packages.${system}.default
+				cage
+				weston
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
