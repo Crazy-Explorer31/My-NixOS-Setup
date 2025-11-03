@@ -299,6 +299,11 @@ in {
 			enable = true;
 			enableSSHSupport = true;
 		};
+
+		gamescope = {
+		enable = true;
+		args = [ "vulkan" ];
+		};
 	};
 
 	# Extra Portal Configuration
