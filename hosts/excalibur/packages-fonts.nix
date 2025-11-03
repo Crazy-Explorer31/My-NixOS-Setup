@@ -197,6 +197,8 @@ in {
 				inputs.woomer.packages.${system}.default
 				cage
 				weston
+				sway
+				river
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
@@ -303,8 +305,8 @@ in {
 		};
 
 		gamescope = {
-		enable = true;
-		args = [ "vulkan" ];
+			enable = true;
+			args = [ "vulkan" ];
 		};
 	};
 
