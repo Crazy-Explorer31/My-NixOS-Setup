@@ -199,6 +199,7 @@ in {
 				weston
 				sway
 				river
+				zip
 
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
