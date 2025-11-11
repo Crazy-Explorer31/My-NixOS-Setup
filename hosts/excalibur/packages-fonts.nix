@@ -201,6 +201,24 @@ in {
 				river
 				zip
 
+				#-------------------------------------ZEN-BROWSER----------------------------------------------------------
+
+				# inputs.zen-browser.packages."${system}".default # beta
+				# inputs.zen-browser.packages."${system}".beta
+				# inputs.zen-browser.packages."${system}".twilight
+				# # IMPORTANT: this package relies on the twilight release artifacts from the
+				# # official zen repo and those artifacts are always replaced, causing hash mismatch
+				# inputs.zen-browser.packages."${system}".twilight-official
+
+				# you can even override the package policies
+				inputs.zen-browser.packages."${system}".default.override {
+				policies = {
+					DisableAppUpdate = true;
+					DisableTelemetry = true;
+				};
+				}
+				#-------------------------------------ZEN-BROWSER----------------------------------------------------------
+
 				#-------------------------------------FOR DAVINCI-RESOLVE--------------------------------------------------
 				ffmpeg-full
 				# Дополнительные библиотеки

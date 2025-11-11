@@ -9,6 +9,12 @@
 		distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
 		ags.url = "github:aylur/ags/v1"; # aylurs-gtk-shell-v1
 		woomer.url = "github:coffeeispower/woomer";
+		zen-browser = {
+			url = "github:0xc000022070/zen-browser-flake";
+			# IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+			# to have it up-to-date or simply don't specify the nixpkgs input
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = inputs @ {
