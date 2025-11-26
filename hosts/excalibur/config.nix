@@ -42,9 +42,9 @@ in {
 			"splash"
 		];
 
-		# This is for OBS Virtual Cam Support
-		#kernelModules = [ "v4l2loopback" ];
-		#  extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+		# This is for Virtual box
+		kernelModules = [ "vboxdrv" "vboxnetadp" "vboxnetflt" ];
+		# extraModulePackages = [ kernelModules ];
 
 		initrd = {
 			availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
