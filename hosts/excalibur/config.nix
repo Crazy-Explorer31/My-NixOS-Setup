@@ -398,6 +398,11 @@ in {
 		dockerCompat = false;
 		defaultNetwork.settings.dns_enabled = false;
 	};
+	virtualisation.virtualbox.host = {
+		enable = true;
+		enableExtensionPack = true;
+	};
+	users.extraGroups.vboxusers.members = [ "stepan" ];
 
 	#systemd.user.services.wlsunset = {
 	#	enable = true;
