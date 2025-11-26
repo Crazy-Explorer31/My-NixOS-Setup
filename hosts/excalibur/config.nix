@@ -44,6 +44,7 @@ in {
 
 		# This is for Virtual box
 		kernelModules = [ "vboxdrv" "vboxnetadp" "vboxnetflt" ];
+		blacklistedKernelModules = [ "kvm-amd" ];
 		# extraModulePackages = [ kernelModules ];
 
 		initrd = {
@@ -400,7 +401,6 @@ in {
 	};
 	virtualisation.virtualbox.host = {
 		enable = true;
-		enableExtensionPack = true;
 	};
 	users.extraGroups.vboxusers.members = [ "stepan" ];
 

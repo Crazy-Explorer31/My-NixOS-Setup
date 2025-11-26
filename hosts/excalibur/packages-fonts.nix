@@ -207,7 +207,6 @@ in {
 				ticktick
 				ollama
 				pdfarranger
-				virtualbox
 
 				#-------------------------------------ZEN-BROWSER----------------------------------------------------------
 
@@ -243,6 +242,10 @@ in {
 				ghc
 				fourmolu
 				haskell-language-server
+
+				#-------------------------------------FOR R--------------------------------------------------
+				R
+				rstudio
 				#-------------------------------------MY PACKAGES--------------------------------------------------
 
 				#waybar  # if wanted experimental next line
@@ -250,6 +253,7 @@ in {
 			])
 		++ [
 			python-packages
+			# R-with-my-packages
 		];
 
 	#FONTS
@@ -294,6 +298,14 @@ in {
 			portalPackage = pkgs.xdg-desktop-portal-hyprland; # xdph none git
 			xwayland.enable = true;
 		};
+
+		# R.enable = true;
+        # R.packages = with pkgs.rPackages; [
+		# 	ggplot2
+		# 	dplyr
+		# 	tidyr
+		# 	shiny
+		# ];
 
 		waybar.enable = true;
 		hyprlock.enable = true;
