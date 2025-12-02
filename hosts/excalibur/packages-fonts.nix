@@ -207,6 +207,13 @@ in {
 				ticktick
 				ollama
 				pdfarranger
+				stirling-pdf
+				libsForQt5.spectacle
+				upscayl
+				czkawka-full
+				losslesscut-bin
+				peek
+				wireshark
 
 				#-------------------------------------ZEN-BROWSER----------------------------------------------------------
 
