@@ -1,0 +1,27 @@
+{
+  "inbounds": [
+    {
+      "port": 1080,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "vpsnl.mooo.com",
+            "port": 45716,
+            "method": "chacha20-ietf-poly1305",
+            "password": "f0698ea4-dfdc-4111-93f8-0eb06ed8bddd"
+          }
+        ]
+      }
+    }
+  ]
+}
