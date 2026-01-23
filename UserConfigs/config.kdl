@@ -155,9 +155,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^\.blueman-manager-wrapped$"#
-    default-column-width { proportion 0.5; }
-    default-window-height { fixed 500; }
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    default-column-width { proportion 0.75; }
+    default-window-height { proportion 0.75; }
     open-floating true
 }
 
@@ -405,6 +405,9 @@ binds {
     Ctrl+Alt+P { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
     // -------------------------SPECTIAL BINDS---------------------
+    Ctrl+Alt+K { spawn-sh "code ~/my-NixOS"; }
+    Ctrl+Alt+J { spawn-sh "~/my-NixOS/UserScripts/CallVSCodeChoice.sh "; }
+
     Mod+I { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     Mod+T { spawn "thunar"; }
     Mod+C { spawn-sh "cliphist list | rofi -dmenu -i -p 'История буфера' | cliphist decode | wl-copy"; }
