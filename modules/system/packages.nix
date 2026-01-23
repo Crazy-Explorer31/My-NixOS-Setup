@@ -127,8 +127,6 @@ in {
       evince
       libreoffice
       apostrophe
-      texliveFull
-      texstudio
       pdfarranger
       stirling-pdf
       typst
@@ -151,7 +149,6 @@ in {
       meson
       pre-commit
       uv
-      emacs
       zed-editor
       obsidian
       llvmPackages_20.clang-tools
@@ -181,14 +178,11 @@ in {
       v2raya
 
       # Виртуализация и контейнеры
-      qemu
       docker
       docker-compose
 
       # Графические приложения
       gimp
-      darktable
-      blender
       davinci-resolve
       obs-studio
       peek
@@ -215,7 +209,6 @@ in {
       pomodoro-gtk
       czkawka-full
       ollama
-      ticktick
       yandex-disk
       yandex-music
       (inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default)
@@ -223,8 +216,6 @@ in {
       wallust
       cliphist
       loupe
-      # swaylock
-      swaylock-effects
 
       # Библиотеки
       glibc

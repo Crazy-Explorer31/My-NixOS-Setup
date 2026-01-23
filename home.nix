@@ -18,9 +18,6 @@
     };
   };
 
-  programs.swaylock.enable = true;
-  programs.swaylock.package = pkgs.swaylock-effects;
-
   xdg.configFile."niri/config.kdl".source =
     config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/my-NixOS/UserConfigs/config.kdl";
