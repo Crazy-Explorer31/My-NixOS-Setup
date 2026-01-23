@@ -100,6 +100,12 @@ in {
       networkmanagerapplet
       nwg-displays
       nwg-look
+      evolution-data-server
+      gnome-calendar
+      evolution-data-server-gtk4
+      gnome-online-accounts
+      gnome-online-accounts-gtk
+      jellyfin
 
       # Qt темы
       libsForQt5.qtstyleplugin-kvantum
@@ -125,6 +131,8 @@ in {
       texstudio
       pdfarranger
       stirling-pdf
+      typst
+      typst-live
 
       # Разработка
       vscode
@@ -146,6 +154,7 @@ in {
       emacs
       zed-editor
       obsidian
+      llvmPackages_20.clang-tools
 
       # Системные утилиты
       inxi
@@ -160,6 +169,8 @@ in {
       parted
       gparted
       nvtopPackages.full
+      direnv
+      nix-direnv
 
       # Сеть
       telegram-desktop
@@ -338,6 +349,7 @@ in {
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     _JAVA_AWT_WM_NONREPARENTING = "1";
+    EDS_PREFIX = "${pkgs.evolution-data-server}";
   };
 
   # Убедитесь, что драйверы видео работают

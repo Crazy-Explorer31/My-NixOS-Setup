@@ -10,7 +10,14 @@
   home.homeDirectory = "/home/stepan";
   home.stateVersion = "25.11";
 
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    settings = {
+      user.name = "Sokolovsky Stepan";
+      user.email = "stepan.soko@list.ru";
+    };
+  };
+
   programs.swaylock.enable = true;
   programs.swaylock.package = pkgs.swaylock-effects;
 

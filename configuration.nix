@@ -253,6 +253,8 @@
     v2raya = {
       enable = true;
     };
+    gnome.evolution-data-server.enable = true;
+    jellyfin.enable = true;
   };
   environment.etc."v2raya/config.json".source = ./UserConfigs/v2ray_config.json;
 
