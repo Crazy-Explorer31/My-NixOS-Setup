@@ -25,4 +25,4 @@
 
 ## Usage demonstation
 
-![record](record.mp4)
+![record](record.gif)
