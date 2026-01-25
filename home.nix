@@ -25,4 +25,9 @@
   xdg.configFile."v2raya/config.json".source =
     config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/my-NixOS/UserConfigs/v2ray_config.json";
+
+  home.file.".proxy/youtube-proxy.pac" = {
+    enable = true;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/my-NixOS/UserConfigs/youtube-proxy.pac";
+  };
 }
