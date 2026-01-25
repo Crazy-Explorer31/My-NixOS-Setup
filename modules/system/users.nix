@@ -57,7 +57,7 @@ in {
         	prompt_segment black blue "%B%n@%m%b"
           fi
         }
-        export AGNOSTER_GIT_DIRTY_BG=202
+        export AGNOSTER_GIT_DIRTY_BG=222
 
         #pokemon colorscripts like. Make sure to install krabby package
         #krabby random --no-mega --no-gmax --no-regional --no-title -s;

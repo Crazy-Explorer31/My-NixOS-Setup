@@ -1,7 +1,7 @@
 {
   "inbounds": [
     {
-      "port": 1080,
+      "port": 20170,
       "listen": "127.0.0.1",
       "protocol": "socks",
       "settings": {
