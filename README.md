@@ -22,3 +22,7 @@
 * * `nr` --- to validate niri config
 
 * v2ray bad? --> run `sudo systemctl stop v2ray.service`, run v2rayA. To revert, stop v2rayA and run `sudo systemctl start v2ray.service`.
+
+## Usage demonstation
+
+![record](record.mp4)
