@@ -21,4 +21,8 @@
   xdg.configFile."niri/config.kdl".source =
     config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/my-NixOS/UserConfigs/config.kdl";
+
+  xdg.configFile."v2raya/config.json".source =
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/my-NixOS/UserConfigs/v2ray_config.json";
 }

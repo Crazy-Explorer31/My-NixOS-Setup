@@ -82,8 +82,7 @@ layout {
     }
 }
 // spawn-sh-at-startup "qs -c ~/.config/quickshell/DankMaterialShell/"
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
-spawn-sh-at-startup "qs -c noctalia-shell ipc call notifications toggleDND"
+spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && qs -c noctalia-shell ipc call notifications enableDND"
 
 spawn-sh-at-startup "wl-paste --watch cliphist store &"
 hotkey-overlay {

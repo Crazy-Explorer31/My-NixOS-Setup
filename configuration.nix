@@ -18,6 +18,7 @@
     ./modules/system/quickshell.nix
     ./modules/system/nh.nix
     ./modules/system/overlays.nix
+    ./modules/system/vm.nix
 
     ./modules/hardware/amd-drivers.nix
     ./modules/hardware/nvidia-drivers.nix
@@ -248,7 +249,7 @@
 
     v2ray = {
       enable = true;
-      configFile = "/etc/v2raya/config.json";
+      configFile = "/home/${username}/.config/v2raya/config.json";
     };
     v2raya = {
       enable = true;
@@ -256,7 +257,7 @@
     gnome.evolution-data-server.enable = true;
     jellyfin.enable = true;
   };
-  environment.etc."v2raya/config.json".source = ./UserConfigs/v2ray_config.json;
+  # environment.etc."v2raya/config.json".source = ./UserConfigs/v2ray_config.json;
 
   # security.sudo.wheelNeedsPassword = false;
 
@@ -355,12 +356,12 @@
   };
 
   # Virtualization / Containers
-  virtualisation.libvirtd.enable = false;
-  virtualisation.podman = {
-    enable = false;
-    dockerCompat = false;
-    defaultNetwork.settings.dns_enabled = false;
-  };
+  # virtualisation.libvirtd.enable = false;
+  # virtualisation.podman = {
+  #   enable = false;
+  #   dockerCompat = false;
+  #   defaultNetwork.settings.dns_enabled = false;
+  # };
 
   # OpenGL
   hardware.graphics = {
