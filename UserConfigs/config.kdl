@@ -165,6 +165,21 @@ window-rule {
     open-fullscreen true
 }
 
+window-rule {
+    match app-id=r#"^\.blueman-manager-wrapped$"#
+    default-column-width { proportion 0.5; }
+    default-window-height { proportion 0.5; }
+    open-floating true
+}
+
+window-rule {
+    match title="Картинка в картинке"
+    default-column-width { proportion 0.3; }
+    default-window-height { proportion 0.3; }
+    open-floating true
+    opacity 0.6
+}
+
 // Example: block out two password managers from screen capture.
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
