@@ -201,6 +201,7 @@ in {
       wineWow64Packages.stableFull
       wineWow64Packages.waylandFull
       winetricks
+      wine64Packages.waylandFull
       bottles
 
       # Другие утилиты
@@ -281,9 +282,8 @@ in {
     git.enable = true;
     steam = {
       enable = true;
-      gamescopeSession.enable = false;
-      remotePlay.openFirewall = false;
-      dedicatedServer.openFirewall = false;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
     };
 
     thunar.enable = true;
