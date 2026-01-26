@@ -139,6 +139,7 @@ in {
       nodejs_24
       ghc
       fourmolu
+      ormolu
       haskell-language-server
       R
       rstudio
@@ -152,6 +153,10 @@ in {
       zed-editor
       obsidian
       llvmPackages_20.clang-tools
+      fzf
+      fzf-zsh
+      ripgrep
+      ripgrep-all
 
       # Системные утилиты
       inxi
