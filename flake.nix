@@ -27,6 +27,8 @@
     };
 
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
+
+    zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
   };
 
   outputs = inputs @ {
@@ -35,6 +37,7 @@
     ags,
     home-manager,
     alejandra,
+    zapret-discord-youtube,
     ...
   }: let
     system = "x86_64-linux";
@@ -61,6 +64,13 @@
             useUserPackages = true;
             users.stepan = import ./home.nix;
             backupFileExtension = "backup";
+          };
+        }
+        zapret-discord-youtube.nixosModules.default
+        {
+          services.zapret-discord-youtube = {
+            enable = true;
+            config = "general (SIMPLE_FAKE_ALT2)"; # Или любой конфиг из папки configs (general, general(ALT), general (SIMPLE FAKE) и т.д.)
           };
         }
       ];
