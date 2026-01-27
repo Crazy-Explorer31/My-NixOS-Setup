@@ -40,7 +40,7 @@ output "eDP-1" {
     position x=0 y=0
 }
 layout {
-    gaps 6
+    gaps 2
 
     center-focused-column "never"
 
@@ -56,7 +56,7 @@ layout {
 
     focus-ring {
         // off
-        width 4
+        width 2
         active-color "#7fc8ff"
         inactive-color "#505050"
 

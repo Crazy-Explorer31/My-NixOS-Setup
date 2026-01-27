@@ -195,6 +195,7 @@ in {
       losslesscut-bin
       drawing
       amberol
+      scantailor-advanced
 
       # Игры
       steam
