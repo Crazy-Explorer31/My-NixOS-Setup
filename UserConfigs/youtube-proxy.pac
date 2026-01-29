@@ -21,9 +21,9 @@ function FindProxyForURL(url, host) {
     //     return PROXY;;
     // }
 	// // Все домены содержащие "cs-uni" идут через прокси
-    // if (shExpMatch(host, "*cs-uni*")) {
-    //     return PROXY;;
-    // }
+    if (shExpMatch(host, "*cs-uni*")) {
+        return PROXY;;
+    }
 	// // Все домены содержащие "webofscience" идут через прокси
     // if (shExpMatch(host, "*webofscience*")) {
     //     return PROXY;;
@@ -72,6 +72,9 @@ function FindProxyForURL(url, host) {
         return PROXY;;
     }
     if (shExpMatch(host, "*steam*")) {
+        return PROXY;;
+    }
+    if (shExpMatch(host, "*patreon*")) {
         return PROXY;;
     }
 

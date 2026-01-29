@@ -137,6 +137,9 @@ window-rule {
     match title="Firefox"
     open-on-workspace "2"
     open-maximized true
+    focus-ring {
+        off
+    }
 }
 
 window-rule {
@@ -145,7 +148,8 @@ window-rule {
 }
 
 window-rule {
-    match title="VS Code"
+    match app-id=r#"^code$"#
+    open-on-workspace "1"
     open-maximized true
     open-maximized-to-edges true
     focus-ring {
@@ -183,7 +187,7 @@ window-rule {
     default-column-width { proportion 0.3; }
     default-window-height { proportion 0.3; }
     open-floating true
-    opacity 0.6
+    opacity 0.8
 }
 
 // Example: block out two password managers from screen capture.
@@ -210,8 +214,8 @@ binds {
 
     // Terminal, App launcher, Screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "qs -c ~/.config/quickshell/noctalia-shell ipc call launcher toggle"; }
-    Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+D hotkey-overlay-title="Run an Application: noctalia-shell-apps" { spawn-sh "qs -c ~/.config/quickshell/noctalia-shell ipc call launcher toggle"; }
+    Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: noctalia-shell-lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
