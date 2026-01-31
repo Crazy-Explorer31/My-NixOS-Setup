@@ -252,6 +252,8 @@ in {
       daktilo
       # other
       alejandra
+      astroterm
+      python313Packages.conda
     ])
     ++ [python-packages];
 

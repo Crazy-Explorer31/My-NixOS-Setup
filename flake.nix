@@ -71,7 +71,13 @@
           services.zapret-discord-youtube = {
             enable = true;
             config = "general (SIMPLE_FAKE_ALT2)"; # Или любой конфиг из папки configs (general, general(ALT), general (SIMPLE FAKE) и т.д.)
-            listExclude = ["ubisoft.com" "origin.com" "docs.noctalia.dev"];
+            listExclude = [
+              "ubisoft.com"
+              "origin.com"
+              /*
+              "docs.noctalia.dev"
+              */
+            ];
           };
         }
       ];
