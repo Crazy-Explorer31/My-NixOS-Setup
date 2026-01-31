@@ -77,6 +77,12 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*patreon*")) {
         return PROXY;;
     }
+    if (shExpMatch(host, "*colab.research.google.com*")) {
+        return PROXY;;
+    }
+    if (shExpMatch(host, "*edolstra*")) {
+        return PROXY;;
+    }
 
     // Весь остальной трафик идёт напрямую
     return "DIRECT";

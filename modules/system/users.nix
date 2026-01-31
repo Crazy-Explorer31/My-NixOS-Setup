@@ -74,6 +74,31 @@ in {
         alias hs='home-manager switch --flake .#stepan'
         alias nr='niri validate'
 
+        # Функция для поиска с fzf и ripgrep
+        fzf-rg-search() {
+            /home/stepan/my-NixOS/UserScripts/SearchWithFzfRipgrep.sh
+        }
+
+        # Создаем виджет Zsh
+        fzf-rg-widget() {
+            # Сохраняем текущий буфер командной строки
+            LBUFFER=""
+            BUFFER=""
+
+            # Вызываем поиск
+            fzf-rg-search "$query"
+
+            # Восстанавливаем состояние командной строки
+            zle reset-prompt
+            zle redisplay
+        }
+
+        # Регистрируем виджет
+        zle -N fzf-rg-widget
+
+        # Привязываем Ctrl+U
+        bindkey '^U' fzf-rg-widget
+
         source <(fzf --zsh);
         HISTFILE=~/.zsh_history;
         HISTSIZE=10000;
