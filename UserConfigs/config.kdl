@@ -40,7 +40,7 @@ output "eDP-1" {
     position x=0 y=0
 }
 layout {
-    gaps 2
+    gaps 0
 
     center-focused-column "never"
 
@@ -436,12 +436,18 @@ binds {
     // -------------------------SPECTIAL BINDS---------------------
     Ctrl+Alt+K { spawn-sh "code ~/my-NixOS"; }
     Ctrl+Alt+J { spawn-sh "~/my-NixOS/UserScripts/CallVSCodeChoice.sh "; }
+    Ctrl+Alt+H { spawn-sh "~/my-NixOS/UserScripts/CallJupyterChoice.sh "; }
 
     Mod+I { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+
     Mod+T { spawn "thunar"; }
-    Mod+C { spawn-sh "cliphist list | rofi -dmenu -i -p 'История буфера' | cliphist decode | wl-copy"; }
     Alt+L { spawn-sh "thunar ~/Downloads"; }
+    
     Mod+K { spawn "mousepad"; }
+
+    Mod+M { spawn-sh "ghostty -e btop"; }
+
+    Mod+C { spawn-sh "cliphist list | rofi -dmenu -i -p 'История буфера' | cliphist decode | wl-copy"; }
 }
 
 include "./noctalia.kdl"

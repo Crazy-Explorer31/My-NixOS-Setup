@@ -22,6 +22,7 @@ in {
         "audio"
         "render"
         "docker"
+        "wireshark"
       ];
 
       # define user packages here
@@ -29,7 +30,7 @@ in {
         tree
       ];
     };
-
+    extraGroups.wireshark.gid = 500;
     defaultUserShell = pkgs.zsh;
   };
 

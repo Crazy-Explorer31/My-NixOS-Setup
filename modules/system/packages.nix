@@ -181,6 +181,7 @@ in {
       darkstat
       v2ray
       v2raya
+      tor-browser
 
       # Виртуализация и контейнеры
       docker

@@ -376,5 +376,14 @@
 
   virtualisation.docker.enable = true;
 
+  security.wrappers = {
+    dumpcap = {
+      owner = "root";
+      group = "wireshark";
+      capabilities = "cap_net_raw,cap_net_admin+eip";
+      source = "${pkgs.wireshark}/bin/dumpcap";
+    };
+  };
+
   system.stateVersion = "25.11"; # Did you read the comment?
 }
