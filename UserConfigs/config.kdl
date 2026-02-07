@@ -91,6 +91,9 @@ layout {
 spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && qs -c noctalia-shell ipc call notifications enableDND"
 
 spawn-sh-at-startup "wl-paste --watch cliphist store &"
+
+spawn-sh-at-startup "/home/stepan/my-NixOS/UserScripts/WatchForColorsModifying.sh"
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -447,7 +450,7 @@ binds {
 
     Mod+M { spawn-sh "ghostty -e btop"; }
 
-    Mod+C { spawn-sh "cliphist list | rofi -dmenu -i -p 'История буфера' | cliphist decode | wl-copy"; }
+    Mod+C { spawn-sh "cliphist list | rofi -dmenu -i -p 'История буфера' -theme /home/stepan/my-NixOS/UserConfigs/RofiConfig.rasi  | cliphist decode | wl-copy"; }
 }
 
 include "./noctalia.kdl"

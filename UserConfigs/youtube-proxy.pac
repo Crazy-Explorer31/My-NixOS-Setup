@@ -50,7 +50,7 @@ function FindProxyForURL(url, host) {
         return PROXY;;
     }
 	// Все домены содержащие "gemini.google.com" идут через прокси
-    if (shExpMatch(host, "*gemini.google.com*")) {
+    if (shExpMatch(host, "*google*")) {
         return PROXY;;
     }
     if (shExpMatch(host, "*zxqfox.github.com*")) {

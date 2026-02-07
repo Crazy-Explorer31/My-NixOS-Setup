@@ -224,6 +224,7 @@ in {
       wallust
       cliphist
       loupe
+      inotify-tools
 
       # Библиотеки
       glibc
