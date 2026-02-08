@@ -83,6 +83,15 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*dev.to*")) {
         return PROXY;;
     }
+    if (shExpMatch(host, "*translatewebpages.org*")) {
+        return PROXY;;
+    }
+    if (shExpMatch(host, "*deepl.com*")) {
+        return PROXY;;
+    }
+    if (shExpMatch(host, "*onlinedoctranslator.com*")) {
+        return PROXY;;
+    }
 
     // Весь остальной трафик идёт напрямую
     return "DIRECT";

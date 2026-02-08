@@ -6,20 +6,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
     alejandra.url = "github:kamadorueda/alejandra";
-
-    ags = {
-      type = "github";
-      owner = "aylur";
-      repo = "ags";
-      ref = "v1";
-    };
-
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
@@ -36,7 +23,6 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    ags,
     home-manager,
     alejandra,
     zapret-discord-youtube,
@@ -78,14 +64,7 @@
         # {
         #   services.zapret-discord-youtube = {
         #     enable = true;
-        #     config = "general (SIMPLE_FAKE_ALT2)"; # Или любой конфиг из папки configs (general, general(ALT), general (SIMPLE FAKE) и т.д.)
-        #     listExclude = [
-        #       "ubisoft.com"
-        #       "origin.com"
-        #       /*
-        #       "docs.noctalia.dev"
-        #       */
-        #     ];
+        #     config = "general (FAKE_TLS_AUTO_ALT2)"; # Или любой конфиг из папки configs (general, general(ALT), general (SIMPLE FAKE) и т.д.)
         #   };
         # }
       ];

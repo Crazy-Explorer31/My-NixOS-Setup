@@ -24,6 +24,7 @@ in {
     (with pkgs; [
       # Системные утилиты
       vim
+      neovim
       wget
       git
       bc
