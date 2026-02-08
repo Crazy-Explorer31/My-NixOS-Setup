@@ -80,6 +80,9 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*edolstra*")) {
         return PROXY;;
     }
+    if (shExpMatch(host, "*dev.to*")) {
+        return PROXY;;
+    }
 
     // Весь остальной трафик идёт напрямую
     return "DIRECT";

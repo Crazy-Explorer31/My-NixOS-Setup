@@ -29,6 +29,8 @@
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
 
     zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
+
+    poly-mult.url = "github:Crazy-Explorer31/poly-mult";
   };
 
   outputs = inputs @ {
@@ -38,6 +40,7 @@
     home-manager,
     alejandra,
     zapret-discord-youtube,
+    poly-mult,
     ...
   }: let
     system = "x86_64-linux";
@@ -65,6 +68,11 @@
             users.stepan = import ./home.nix;
             backupFileExtension = "backup";
           };
+        }
+        {
+          environment.systemPackages = with pkgs; [
+            poly-mult.packages.${system}.default
+          ];
         }
         # zapret-discord-youtube.nixosModules.default
         # {
