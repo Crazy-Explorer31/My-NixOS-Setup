@@ -7,6 +7,7 @@
   username,
   options,
   inputs,
+  lib,
   ...
 }: {
   imports = [
@@ -28,6 +29,7 @@
     ./modules/hardware/local-hardware-clock.nix
   ];
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.cudaSupport = true;
   # Boot
   boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -345,8 +347,8 @@
         "nix-command"
         "flakes"
       ];
-      substituters = ["https://hyprland.cachix.org" "https://cache.nixos-cuda.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="];
+      # substituters = ["https://hyprland.cachix.org" "https://cache.nixos-cuda.org"];
+      # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="];
     };
     gc = {
       automatic = true;
@@ -370,6 +372,20 @@
 
   # For Electron apps to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  environment.sessionVariables = {
+    CUDA_HOME = "${pkgs.cudaPackages.cudatoolkit}";
+    # LD_LIBRARY_PATH = lib.makeLibraryPath [
+    #   "${pkgs.cudaPackages.cudatoolkit}"
+    #   "${pkgs.cudaPackages.cudatoolkit}/lib64"
+    #   pkgs.cudaPackages.cudnn
+    #   pkgs.cudaPackages.cuda_cudart
+    #   pkgs.stdenv.cc.cc.lib
+    #   pkgs.pipewire
+    #   pkgs.libdbusmenu
+    # ];
+    CUDA_MODULE_LOADING = "LAZY";
+  };
 
   hardware.steam-hardware.enable = true;
   hardware.xone.enable = true;

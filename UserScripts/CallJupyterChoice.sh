@@ -18,5 +18,5 @@ if [ -z "$directory" ] || [ "$directory" = "" ]; then
 fi
 
 cd /home/stepan/ml_nix_env/
-nix-shell --run "jupyter-lab $directory"
-# jupyter-lab $directory
+echo "Directory to open: \"$directory\""
+nix-shell --run "jupyter-lab \"$directory\"" # spaces in `$directory` not a problem

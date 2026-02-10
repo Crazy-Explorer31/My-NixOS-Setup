@@ -196,6 +196,11 @@ window-rule {
     opacity 0.8
 }
 
+window-rule {
+    match app-id=r#"^org\.gnome\.Evince$"#
+    open-maximized true
+}
+
 // Example: block out two password managers from screen capture.
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#

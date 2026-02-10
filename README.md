@@ -17,9 +17,10 @@
 ## Tips to use
 
 * Use commands:
-* * `nrs` --- to rebuild system
-* * `hs` --- to rebuild home (home-manager)
-* * `nr` --- to validate niri config
+* * `nrs` --- to rebuild system (alias for `sudo nixos-rebuild switch --flake .`)
+* * `hs` --- to rebuild home via home-manager (alias for `home-manager switch --flake .#stepan`)
+* * `nr` --- to validate niri config (alias for `niri validate`)
+* * `ngc` --- to delete unused packages (alias for `sudo nix-store --gc`)
 
 ## Usage demonstation
 

@@ -257,6 +257,11 @@ in {
       alejandra
       astroterm
       python313Packages.conda
+
+      # CUDA stuff
+      cudaPackages.cudatoolkit
+      cudaPackages.cudnn
+      cudaPackages.cuda_cudart
     ])
     ++ [python-packages];
 
