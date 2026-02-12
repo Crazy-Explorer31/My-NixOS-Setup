@@ -201,6 +201,16 @@ window-rule {
     open-maximized true
 }
 
+window-rule {
+    match app-id=r#"^Matplotlib$"#
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"^thunar$"#
+    open-maximized true
+}
+
 // Example: block out two password managers from screen capture.
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#

@@ -2,7 +2,10 @@ function FindProxyForURL(url, host) {
     var PROXY = "SOCKS5 127.0.0.1:20170";
 
     // Перенаправляем YouTube через прокси
-    if (shExpMatch(host, "*youtube.com") ) {
+    if (shExpMatch(host, "*.youtube.com") || 
+		shExpMatch(host, "*.rutracker.org") ||
+        shExpMatch(host, "*.youtu.be") || 
+        shExpMatch(host, "*.googlevideo.com")) {
         return PROXY;;
     }
     // // Все домены содержащие "rutracker" идут через прокси

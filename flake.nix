@@ -18,6 +18,7 @@
     zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
 
     poly-mult.url = "github:Crazy-Explorer31/poly-mult";
+    freqs-vis.url = "github:Crazy-Explorer31/freqs-vis";
   };
 
   outputs = inputs @ {
@@ -27,6 +28,7 @@
     alejandra,
     zapret-discord-youtube,
     poly-mult,
+    freqs-vis,
     ...
   }: let
     system = "x86_64-linux";
@@ -58,6 +60,11 @@
         {
           environment.systemPackages = with pkgs; [
             poly-mult.packages.${system}.default
+          ];
+        }
+        {
+          environment.systemPackages = with pkgs; [
+            freqs-vis.packages.${system}.default
           ];
         }
         # zapret-discord-youtube.nixosModules.default
