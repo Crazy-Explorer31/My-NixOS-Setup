@@ -51,7 +51,9 @@ in {
       };
 
       promptInit = ''
-        fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
+        if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+          fastfetch -c "$HOME/my-NixOS/UserConfigs/config-compact.jsonc"
+        fi
 
         prompt_context() {
           if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then

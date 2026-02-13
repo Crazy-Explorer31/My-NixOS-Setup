@@ -3,103 +3,108 @@ function FindProxyForURL(url, host) {
 
     // Перенаправляем YouTube через прокси
     if (shExpMatch(host, "*.youtube.com") || 
-		shExpMatch(host, "*.rutracker.org") ||
+        shExpMatch(host, "*.rutracker.org") ||
         shExpMatch(host, "*.youtu.be") || 
-        shExpMatch(host, "*.googlevideo.com")) {
-        return PROXY;;
+        shExpMatch(host, "*.googlevideo.com") ||
+        shExpMatch(host, "*.ytimg.com") ||
+        shExpMatch(host, "*.ggpht.com")) {
+        return PROXY;
     }
     // // Все домены содержащие "rutracker" идут через прокси
     if (shExpMatch(host, "*rutracker*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// // Все домены содержащие "protondb" идут через прокси
     if (shExpMatch(host, "*protondb*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// // Все домены содержащие "openai" идут через прокси
     if (shExpMatch(host, "*openai*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// // Все домены содержащие "cs-uni" идут через прокси
     if (shExpMatch(host, "*cs-uni*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// // Все домены содержащие "webofscience" идут через прокси
     if (shExpMatch(host, "*webofscience*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// // Все домены содержащие "learn-anything" идут через прокси
     if (shExpMatch(host, "*learn-anything*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// // Все домены содержащие "scimagojr" идут через прокси
     if (shExpMatch(host, "*scimagojr*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// // Все домены содержащие "nature.com" идут через прокси
     if (shExpMatch(host, "*nature.com*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// // Все домены содержащие "networkx.org" идут через прокси
     if (shExpMatch(host, "*networkx.org*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// Все домены содержащие "kaggle.com" идут через прокси
     if (shExpMatch(host, "*kaggle.com*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// Все домены содержащие "spotify.com" идут через прокси
     if (shExpMatch(host, "*spotify*")) {
-        return PROXY;;
+        return PROXY;
     }
 	// Все домены содержащие "gemini.google.com" идут через прокси
     // if (shExpMatch(host, "*google*")) {
-    //     return PROXY;;
+    //     return PROXY;
     // }
     if (shExpMatch(host, "*zxqfox.github.com*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*noctalia.dev*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*indolte.com*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*pixabay.com*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*jellyfin.org*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*steam*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*patreon*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*colab.research.google.com*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*edolstra*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*dev.to*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*translatewebpages.org*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*deepl.com*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*onlinedoctranslator.com*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*nature.com*")) {
-        return PROXY;;
+        return PROXY;
     }
     if (shExpMatch(host, "*nixos.org*")) {
-        return PROXY;;
+        return PROXY;
+    }
+    if (shExpMatch(host, "*alacritty.org*")) {
+        return PROXY;
     }
 
     // Весь остальной трафик идёт напрямую

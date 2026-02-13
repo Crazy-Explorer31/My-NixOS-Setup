@@ -158,6 +158,8 @@ in {
       fzf-zsh
       ripgrep
       ripgrep-all
+      alacritty-graphics
+      alacritty-theme
 
       # Системные утилиты
       inxi
