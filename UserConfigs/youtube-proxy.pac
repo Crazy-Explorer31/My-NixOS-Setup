@@ -106,6 +106,15 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*alacritty.org*")) {
         return PROXY;
     }
+    if (shExpMatch(host, "*mk48.io*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*tourofrust.com*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*codewars.com*")) {
+        return PROXY;
+    }
 
     // Весь остальной трафик идёт напрямую
     return "DIRECT";

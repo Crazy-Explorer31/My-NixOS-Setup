@@ -130,8 +130,11 @@ in {
       apostrophe
       pdfarranger
       stirling-pdf
+      # Typst
       typst
       typst-live
+      typstyle
+      typstwriter
 
       # Разработка
       vscode
@@ -264,6 +267,13 @@ in {
       cudaPackages.cudatoolkit
       cudaPackages.cudnn
       cudaPackages.cuda_cudart
+
+      # Rust stuff
+      cargo
+      rustc
+      rustfmt
+      rust-analyzer
+      rustlings
     ])
     ++ [python-packages];
 

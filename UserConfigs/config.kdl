@@ -239,8 +239,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Terminal, App launcher, Screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+Shift+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Shift+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: noctalia-shell-apps" { spawn-sh "qs -c ~/.config/quickshell/noctalia-shell ipc call launcher toggle"; }
     Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: noctalia-shell-lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
 
