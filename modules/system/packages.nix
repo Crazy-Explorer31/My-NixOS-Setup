@@ -135,7 +135,7 @@ in {
       typst-live
       typstyle
       typstwriter
-
+      tinymist3edae
       # Разработка
       vscode
       vscodium
