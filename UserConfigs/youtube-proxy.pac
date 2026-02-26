@@ -100,9 +100,9 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*nature.com*")) {
         return PROXY;
     }
-    if (shExpMatch(host, "*nixos.org*")) {
-        return PROXY;
-    }
+    // if (shExpMatch(host, "*nixos.org*")) {
+    //     return PROXY;
+    // }
     if (shExpMatch(host, "*alacritty.org*")) {
         return PROXY;
     }
@@ -115,6 +115,13 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*codewars.com*")) {
         return PROXY;
     }
+    if (shExpMatch(host, "*pysdr.org*")) {
+        return PROXY;
+    }
+    // if (shExpMatch(host, "*")) {
+    //     return PROXY;
+    // }
+    
 
     // Весь остальной трафик идёт напрямую
     return "DIRECT";

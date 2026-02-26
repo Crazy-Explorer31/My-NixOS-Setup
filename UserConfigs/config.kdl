@@ -463,6 +463,7 @@ binds {
     Ctrl+Alt+H { spawn-sh "~/my-NixOS/UserScripts/CallJupyterChoice.sh "; }
 
     Mod+I { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+    Mod+P { spawn-sh "qs -c noctalia-shell ipc call plugin:assistant-panel toggle"; }
 
     Mod+T { spawn "thunar"; }
     Alt+L { spawn-sh "thunar ~/Downloads"; }

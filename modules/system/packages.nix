@@ -59,14 +59,13 @@ in {
       wl-clipboard
 
       # Терминалы и оболочки
-      foot
       btop
 
       # Браузеры
       firefox
 
       # Мультимедиа
-      (mpv.override {scripts = [mpvScripts.mpris];})
+      (mpv.override {scripts = [mpvScripts.mpris mpvScripts.uosc mpvScripts.thumbfast];})
       brightnessctl
       cava
       pamixer
@@ -136,6 +135,13 @@ in {
       typstyle
       typstwriter
       tinymist3edae
+      tinymist
+      typstPackages.zebraw
+      typstPackages.itemize
+      typstPackages.showybox
+      typstPackages.glossarium
+      typstPackages.fontawesome
+
       # Разработка
       vscode
       vscodium
@@ -302,6 +308,11 @@ in {
     roboto-mono
     terminus_font
     victor-mono
+    cascadia-code
+    fira
+    fira-math
+    fira-go
+    fira-mono
   ];
 
   programs = {
