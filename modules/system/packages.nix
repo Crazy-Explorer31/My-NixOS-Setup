@@ -65,7 +65,7 @@ in {
       firefox
 
       # Мультимедиа
-      (mpv.override {scripts = [mpvScripts.mpris mpvScripts.uosc mpvScripts.thumbfast];})
+      (mpv.override {scripts = [mpvScripts.mpris mpvScripts.cutter mpvScripts.manga-reader];})
       brightnessctl
       cava
       pamixer

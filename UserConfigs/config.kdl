@@ -31,7 +31,7 @@ input {
 }
 gestures {
     hot-corners {
-        off
+        // off
     }
 }
 

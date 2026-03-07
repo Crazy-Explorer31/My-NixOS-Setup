@@ -118,6 +118,9 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*pysdr.org*")) {
         return PROXY;
     }
+    if (shExpMatch(host, "*mynixos*")) {
+        return PROXY;
+    }
     // if (shExpMatch(host, "*")) {
     //     return PROXY;
     // }
