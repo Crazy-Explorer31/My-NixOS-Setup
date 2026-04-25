@@ -249,10 +249,6 @@
     #  configDir = "/home/${username}/.config/syncthing";
     #};
 
-    v2ray = {
-      enable = true;
-      configFile = "/home/${username}/.config/v2raya/config.json"; # symlink configured in home.nix
-    };
     v2raya = {
       enable = true;
     };

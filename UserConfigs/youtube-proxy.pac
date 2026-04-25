@@ -121,6 +121,42 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*mynixos*")) {
         return PROXY;
     }
+    if (shExpMatch(host, "*claude.com*") ||
+        shExpMatch(host, "*claude.ai*") ||
+        shExpMatch(host, "*anthropic.com*") ||
+        shExpMatch(host, "*.sentry.io") ||
+        shExpMatch(host, "*.intercom.io") ||
+        shExpMatch(host, "*.cloudfront.net")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*eraser.io*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*grok.com*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*telegram*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*swagger*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*kufar.by*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*arxiv.org*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*suitsupply.com*")) {
+        return PROXY;
+    }
+    if (shExpMatch(host, "*songbpm.com*")) {
+        return PROXY;
+    }
+    // if (shExpMatch(host, "*pypi*")) {
+    //     return PROXY;
+    // }
+    
     // if (shExpMatch(host, "*")) {
     //     return PROXY;
     // }

@@ -16,6 +16,11 @@
       uvicorn
       selenium
       beautifulsoup4
+      redis
+      rq
+      aiobotocore
+      aioboto3
+      pyarrow
     ]);
 in {
   nixpkgs.config.allowUnfree = true;
@@ -63,6 +68,7 @@ in {
 
       # Браузеры
       firefox
+      brave
 
       # Мультимедиа
       (mpv.override {scripts = [mpvScripts.mpris mpvScripts.cutter mpvScripts.manga-reader];})
@@ -134,7 +140,6 @@ in {
       typst-live
       typstyle
       typstwriter
-      tinymist3edae
       tinymist
       typstPackages.zebraw
       typstPackages.itemize
@@ -237,6 +242,8 @@ in {
       cliphist
       loupe
       inotify-tools
+      black
+      audacity
 
       # Библиотеки
       glibc

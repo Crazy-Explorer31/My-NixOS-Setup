@@ -88,11 +88,13 @@ layout {
     }
 }
 // spawn-sh-at-startup "qs -c ~/.config/quickshell/DankMaterialShell/"
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && qs -c noctalia-shell ipc call notifications enableDND"
+// spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && qs -c noctalia-shell ipc call notifications enableDND"
 
 spawn-sh-at-startup "wl-paste --watch cliphist store &"
 
 spawn-sh-at-startup "/home/stepan/my-NixOS/UserScripts/WatchForColorsModifying.sh"
+
+spawn-sh-at-startup "nix-shell ~/Git/dl_hse/shell.nix --run 'jupyter-lab . --no-browser'"
 
 hotkey-overlay {
     skip-at-startup

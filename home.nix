@@ -26,6 +26,10 @@
     config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/my-NixOS/UserConfigs/v2ray_config.json";
 
+  xdg.configFile."alacritty/alacritty.toml".source =
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/my-NixOS/UserConfigs/alacritty.toml";
+
   home.file.".proxy/youtube-proxy.pac" = {
     enable = true;
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/my-NixOS/UserConfigs/youtube-proxy.pac";
