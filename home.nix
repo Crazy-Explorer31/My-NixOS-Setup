@@ -34,4 +34,8 @@
     enable = true;
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/my-NixOS/UserConfigs/youtube-proxy.pac";
   };
+  home.file."shell.nix" = {
+    enable = true;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/my-NixOS/UserConfigs/shell_with_cuda.nix";
+  };
 }

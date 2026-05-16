@@ -88,13 +88,19 @@ layout {
     }
 }
 // spawn-sh-at-startup "qs -c ~/.config/quickshell/DankMaterialShell/"
-// spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && qs -c noctalia-shell ipc call notifications enableDND"
+spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && qs -c noctalia-shell ipc call notifications enableDND"
 
 spawn-sh-at-startup "wl-paste --watch cliphist store &"
 
 spawn-sh-at-startup "/home/stepan/my-NixOS/UserScripts/WatchForColorsModifying.sh"
 
-spawn-sh-at-startup "nix-shell ~/Git/dl_hse/shell.nix --run 'jupyter-lab . --no-browser'"
+spawn-sh-at-startup "nix-shell /home/stepan/shell.nix --run 'uv run --directory /home/stepan jupyter lab --no-browser'"
+// в /home/stepan были после выполнены `uv venv`, 
+//                               `uv pip install ipykernel`
+//                               `uv run ipython kernel install --user --env VIRTUAL_ENV $(pwd)/.venv --name="base_kernel"`
+// и прочие `uv pip install`'ы
+spawn-sh-at-startup "uv run --directory /home/stepan python /home/stepan/my-NixOS/UserScripts/v2raya_daemon.py"
+
 
 hotkey-overlay {
     skip-at-startup
@@ -475,6 +481,7 @@ binds {
     Mod+M { spawn-sh "ghostty -e btop"; }
 
     Mod+C { spawn-sh "cliphist list | rofi -dmenu -i -p 'История буфера' -theme /home/stepan/my-NixOS/UserConfigs/RofiConfig.rasi  | cliphist decode | wl-copy"; }
+    Ctrl+Alt+M hotkey-overlay-title="Toggle v2rayA" {spawn-sh "kill -USR1 $(cat /tmp/v2raya_daemon.pid)";}
 }
 
 include "./noctalia.kdl"

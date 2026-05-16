@@ -21,6 +21,9 @@
       aiobotocore
       aioboto3
       pyarrow
+      pygobject3
+      fastapi
+      redis
     ]);
 in {
   nixpkgs.config.allowUnfree = true;
@@ -72,6 +75,7 @@ in {
 
       # Мультимедиа
       (mpv.override {scripts = [mpvScripts.mpris mpvScripts.cutter mpvScripts.manga-reader];})
+      mpvpaper
       brightnessctl
       cava
       pamixer
@@ -93,7 +97,6 @@ in {
       slurp
       swappy
       feh
-      imagemagick
       matugen
 
       # Уведомления
@@ -107,10 +110,13 @@ in {
       nwg-displays
       nwg-look
       evolution-data-server
+      evolution
       gnome-calendar
       evolution-data-server-gtk4
       gnome-online-accounts
       gnome-online-accounts-gtk
+      gobject-introspection
+      libical
       jellyfin
 
       # Qt темы
@@ -148,7 +154,7 @@ in {
       typstPackages.fontawesome
 
       # Разработка
-      vscode
+      unstable.vscode-fhs
       vscodium
       jdk21_headless
       nodejs_24
@@ -236,7 +242,9 @@ in {
       ollama
       yandex-disk
       yandex-music
-      (inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default)
+      # (inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default)
+      unstable.noctalia-qs
+      (unstable.noctalia-shell.override {calendarSupport = true;})
       wlsunset
       wallust
       cliphist
@@ -244,6 +252,7 @@ in {
       inotify-tools
       black
       audacity
+      opencode
 
       # Библиотеки
       glibc
@@ -263,6 +272,7 @@ in {
       fuse
       gtk-engine-murrine
       flat-remix-gtk # GTK тема
+      gtk3
       flat-remix-icon-theme # Иконки
       # bibata-cursors       # Курсоры (раскомментировать если нужно)
       chromedriver
@@ -275,7 +285,9 @@ in {
       alejandra
       astroterm
       python313Packages.conda
-
+      evtest
+      networkmanagerapplet
+      imagemagick
       # CUDA stuff
       cudaPackages.cudatoolkit
       cudaPackages.cudnn
@@ -358,6 +370,7 @@ in {
       enable = true;
       args = ["--force-gfx-api" "vulkan"];
     };
+    nix-ld.enable = true;
   };
 
   # Portal Configuration для Wayland

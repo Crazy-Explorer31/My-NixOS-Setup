@@ -9,6 +9,7 @@
 
     # Qt6 dependencies for quickshell
     qt6.qtbase
+    qt6.full
     qt6.qtdeclarative
     qt6.qtwayland
     qt6.qtsvg
