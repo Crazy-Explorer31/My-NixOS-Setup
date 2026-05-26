@@ -110,8 +110,8 @@
     nvidia.enable = true;
     nvidia-prime = {
       enable = false;
-      amdgpuBusID = "PCI:5:0:0";
-      nvidiaBusID = "PCI:1:0:0";
+      amdgpuBusId = "PCI:5:0:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
   };
   vm.guest-services.enable = true;

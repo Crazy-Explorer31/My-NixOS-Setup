@@ -196,6 +196,7 @@ in {
       nvtopPackages.full
       direnv
       nix-direnv
+      nix-index
 
       # Сеть
       telegram-desktop
@@ -225,14 +226,21 @@ in {
       steam
       endless-sky
       gamescope-wsi
+      protontricks
 
       # Wine
       wine
       wineWow64Packages.stableFull
       wineWow64Packages.waylandFull
+      wineWow64Packages.full
       winetricks
       wine64Packages.waylandFull
       bottles
+      innoextract
+      protonup-qt
+      lutris
+      vulkan-tools
+      nvidia-offload
 
       # Другие утилиты
       zoom-us
@@ -267,6 +275,7 @@ in {
       hwdata
       pcre2
       libgcc
+      libGL
       gmp
       gsl
       fuse
