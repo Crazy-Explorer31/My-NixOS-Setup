@@ -1,51 +1,39 @@
+# 💫 https://github.com/JaKooLit 💫 #
 {
-  lib,
-  pkgs,
-  config,
-  ...
+	lib,
+	pkgs,
+	config,
+	...
 }:
 with lib; let
-  cfg = config.drivers.nvidia-prime;
+	cfg = config.drivers.nvidia-prime;
 in {
-  options.drivers.nvidia-prime = {
-    enable = mkEnableOption "Enable Nvidia Prime Hybrid GPU Offload";
+	options.drivers.nvidia-prime = {
+		enable = mkEnableOption "Enable Nvidia Prime Hybrid GPU Offload";
+		amdgpuBusID =
+			mkOption {
+				type = types.str;
+				default = "PCI:5:0:0";
+			};
+		nvidiaBusID =
+			mkOption {
+				type = types.str;
+				default = "PCI:1:0:0";
+			};
+	};
 
-    amdgpuBusId = mkOption {
-      type = types.str;
-      default = "PCI:5:0:0";
-      description = "Bus ID of the AMD integrated GPU";
-    };
-
-    nvidiaBusId = mkOption {
-      type = types.str;
-      default = "PCI:1:0:0";
-      description = "Bus ID of the NVIDIA discrete GPU";
-    };
-  };
-
-  config = mkIf cfg.enable {
-    hardware.nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      prime = {
-        offload = {
-          enable = true;
-          enableOffloadCmd = true;
-        };
-        amdgpuBusId = cfg.amdgpuBusId;
-        nvidiaBusId = cfg.nvidiaBusId;
-      };
-    };
-
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
-
-    environment.systemPackages = with pkgs; [
-      vulkan-tools
-      nvidia-offload # для удобства
-    ];
-  };
+	config =
+		mkIf cfg.enable {
+			hardware.nvidia = {
+				prime = {
+					offload = {
+						enable = true;
+						enableOffloadCmd = true;
+					};
+					# Make sure to use the correct Bus ID values for your system!
+					intelBusId = "${cfg.intelBusID}";
+					nvidiaBusId = "${cfg.nvidiaBusID}";
+				};
+			};
+		};
 }
