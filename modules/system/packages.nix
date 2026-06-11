@@ -205,6 +205,7 @@ in {
       v2ray
       v2raya
       tor-browser
+      # sing-box
 
       # Виртуализация и контейнеры
       docker
@@ -251,8 +252,10 @@ in {
       loupe
       inotify-tools
       black
+      ruff
       audacity
       opencode
+      syncthing
 
       # Библиотеки
       glibc
@@ -391,6 +394,14 @@ in {
 
   # Включаем seatd для управления сессиями
   services.seatd.enable = true;
+
+  services.syncthing = {
+    enable = true;
+    user = "stepan"; # ваш логин
+    # group = "stepan"; # или "stepan", но обычно users
+    openDefaultPorts = true;
+    # guiAddress = "0.0.0.0:8384";
+  };
 
   # Дополнительные настройки для Niri
   environment.sessionVariables = {

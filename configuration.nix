@@ -20,6 +20,7 @@
     ./modules/system/nh.nix
     ./modules/system/overlays.nix
     ./modules/system/vm.nix
+    ./modules/system/happ-module.nix
 
     ./modules/hardware/amd-drivers.nix
     ./modules/hardware/nvidia-drivers.nix
@@ -122,6 +123,11 @@
     networkmanager.enable = true;
     hostName = "${host}";
     timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
+
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [20170 20171 20172];
+    };
   };
 
   time.timeZone = "Europe/Moscow";
@@ -254,6 +260,7 @@
     };
     gnome.evolution-data-server.enable = true;
     jellyfin.enable = true;
+    happ.enable = true;
   };
   # environment.etc."v2raya/config.json".source = ./UserConfigs/v2ray_config.json;
 

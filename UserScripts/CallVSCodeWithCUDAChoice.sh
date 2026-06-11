@@ -17,6 +17,6 @@ if [ -z "$directory" ] || [ "$directory" = "" ]; then
     exit 1
 fi
 
-cd /home/stepan/ml_nix_env/
+cd /home/stepan/
 echo "Directory to open: \"$directory\""
-nix-shell --run "jupyter-lab \"$directory\"" # spaces in `$directory` not a problem
+nix-shell --run "code --no-sandbox \"$directory\"" # spaces in `$directory` not a problem
