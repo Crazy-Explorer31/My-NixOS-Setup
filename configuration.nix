@@ -30,7 +30,12 @@
     ./modules/hardware/local-hardware-clock.nix
   ];
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaSupport = true;
+  # nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "docker-28.5.2"
+    "electron-38.8.4"
+    "electron-39.8.10"
+  ];
   # Boot
   boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -130,7 +135,8 @@
     };
   };
 
-  time.timeZone = "Europe/Moscow";
+  # time.timeZone = "Europe/Moscow";
+  time.timeZone = "Asia/Krasnoyarsk";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -197,6 +203,16 @@
       pulse.enable = true;
       jack.enable = true;
       wireplumber.enable = true;
+    };
+
+    pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
+      "monitor.bluez.properties" = {
+        "bluez5.enable-sbc-xq" = true;
+        "bluez5.enable-msbc" = true;
+        "bluez5.enable-hw-volume" = true;
+        "bluez5.codecs" = ["sbc" "sbc_xq" "aac" "ldac" "aptx"]; # добавь всё, что есть
+        "bluez5.a2dp.sample-rate" = ["48000"];
+      };
     };
 
     joycond.enable = true; # Для Nintendo Switch контроллеров
@@ -300,6 +316,7 @@
   };
 
   services.pulseaudio.enable = false; # stable branch
+  services.pulseaudio.package = pkgs.pulseaudioFull;
 
   # Bluetooth
   hardware = {
@@ -350,8 +367,23 @@
         "nix-command"
         "flakes"
       ];
-      substituters = ["https://noctalia.cachix.org" "https://cache.nixos-cuda.org"];
-      trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="];
+      # substituters = ["https://noctalia.cachix.org" "https://cache.nixos-cuda.org"];
+      substituters = lib.mkBefore [
+        "https://cache.garnix.io?priority=40"
+        "https://cache.m7.rs?priority=39"
+        "https://cache.nixos.org?priority=38"
+        "https://cache.soopy.moe?priority=37"
+        "https://chaotic-nyx.cachix.org?priority=35"
+        "https://colmena.cachix.org?priority=34"
+        "https://hyprland.cachix.org?priority=33"
+        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=32"
+        "https://mirrors.ustc.edu.cn/nix-channels/store?priority=31"
+        "https://nix-community.cachix.org?priority=30"
+        "https://nix-gaming.cachix.org?priority=29"
+        "https://nixos-cache-proxy.cofob.dev?priority=28"
+        "https://nixos.snix.store?priority=27"
+      ];
+      # trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="];
     };
     gc = {
       automatic = true;

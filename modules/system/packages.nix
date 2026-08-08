@@ -43,7 +43,7 @@ in {
       cpufrequtils
       duf
       findutils
-      ffmpeg
+      # ffmpeg
       glib
       gsettings-qt
       killall
@@ -82,14 +82,14 @@ in {
       pavucontrol
       playerctl
       yt-dlp
-      ffmpeg-full
+      # ffmpeg-full
       libva
       libvdpau
       libva-vdpau-driver
       libopus
       libvorbis
       libsndfile
-      vivaldi-ffmpeg-codecs
+      # vivaldi-ffmpeg-codecs
       openh264
 
       # Графика и скриншоты
@@ -196,6 +196,10 @@ in {
       nvtopPackages.full
       direnv
       nix-direnv
+      bluez5
+      exfat
+      exfatprogs
+      heroic
 
       # Сеть
       telegram-desktop
@@ -205,7 +209,10 @@ in {
       v2ray
       v2raya
       tor-browser
-      # sing-box
+      sing-box
+      gui-for-singbox
+      webkitgtk_6_0
+      virtiofsd
 
       # Виртуализация и контейнеры
       docker
@@ -213,7 +220,7 @@ in {
 
       # Графические приложения
       gimp
-      davinci-resolve
+      unstable.davinci-resolve
       obs-studio
       peek
       upscayl
@@ -292,9 +299,9 @@ in {
       networkmanagerapplet
       imagemagick
       # CUDA stuff
-      cudaPackages.cudatoolkit
-      cudaPackages.cudnn
-      cudaPackages.cuda_cudart
+      # cudaPackages.cudatoolkit
+      # cudaPackages.cudnn
+      # cudaPackages.cuda_cudart
 
       # Rust stuff
       cargo
@@ -394,10 +401,11 @@ in {
 
   # Включаем seatd для управления сессиями
   services.seatd.enable = true;
+  services.happ.enable = true;
 
   services.syncthing = {
     enable = true;
-    user = "stepan"; # ваш логин
+    # user = "stepan"; # ваш логин
     # group = "stepan"; # или "stepan", но обычно users
     openDefaultPorts = true;
     # guiAddress = "0.0.0.0:8384";

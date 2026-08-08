@@ -39,6 +39,10 @@ output "eDP-1" {
     mode "1920x1080@60.008"
     position x=0 y=0
 }
+// output "HDMI-A-1" {
+//     mode "1920x1080@60.000"
+//     position x=1920 y=0
+// }
 layout {
     gaps 0
 
@@ -377,7 +381,10 @@ binds {
     Mod+Shift+WheelScrollDown      { focus-column-right; }
     Mod+Shift+WheelScrollUp        { focus-column-left; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+    // Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    Mod+Shift+Left { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
 
     // Similarly, you can bind touchpad scroll "ticks".
     // Touchpad scrolling is continuous, so for these binds it is split into
