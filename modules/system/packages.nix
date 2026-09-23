@@ -24,6 +24,7 @@
       pygobject3
       fastapi
       redis
+      pytest
     ]);
 in {
   nixpkgs.config.allowUnfree = true;
@@ -127,9 +128,9 @@ in {
       kdePackages.qtstyleplugin-kvantum
 
       # Файловые менеджеры и архиваторы
-      xfce.thunar-archive-plugin
+      thunar-archive-plugin
       file-roller
-      (xfce.thunar.override {thunarPlugins = [xfce.thunar-archive-plugin];})
+      (thunar.override {thunarPlugins = [thunar-archive-plugin];})
       xarchiver
       unzip
       zip
@@ -154,7 +155,7 @@ in {
       typstPackages.fontawesome
 
       # Разработка
-      unstable.vscode-fhs
+      vscode-fhs
       vscodium
       jdk21_headless
       nodejs_24
@@ -175,7 +176,6 @@ in {
       obsidian
       llvmPackages_20.clang-tools
       fzf
-      fzf-zsh
       ripgrep
       ripgrep-all
       alacritty-graphics
@@ -220,7 +220,7 @@ in {
 
       # Графические приложения
       gimp
-      unstable.davinci-resolve
+      davinci-resolve
       obs-studio
       peek
       upscayl
@@ -239,7 +239,6 @@ in {
       wineWow64Packages.stableFull
       wineWow64Packages.waylandFull
       winetricks
-      wine64Packages.waylandFull
       bottles
 
       # Другие утилиты
@@ -251,8 +250,8 @@ in {
       yandex-disk
       yandex-music
       # (inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default)
-      unstable.noctalia-qs
-      (unstable.noctalia-shell.override {calendarSupport = true;})
+      noctalia-qs
+      (noctalia-shell.override {calendarSupport = true;})
       wlsunset
       wallust
       cliphist
@@ -263,6 +262,12 @@ in {
       audacity
       opencode
       syncthing
+      flameshot
+      cpu-x
+      nsxiv
+      localsend
+      yandex-cloud
+      rustup
 
       # Библиотеки
       glibc
@@ -280,14 +285,11 @@ in {
       gmp
       gsl
       fuse
-      gtk-engine-murrine
-      flat-remix-gtk # GTK тема
       gtk3
       flat-remix-icon-theme # Иконки
       # bibata-cursors       # Курсоры (раскомментировать если нужно)
       chromedriver
       vulkan-tools
-      wineWowPackages.staging
       tectonic
       libqalculate
       daktilo
@@ -355,8 +357,8 @@ in {
     };
 
     thunar.enable = true;
-    thunar.plugins = with pkgs.xfce; [
-      exo
+    thunar.plugins = with pkgs; [
+      # exo
       mousepad
       thunar-archive-plugin
       thunar-volman
@@ -381,6 +383,8 @@ in {
       args = ["--force-gfx-api" "vulkan"];
     };
     nix-ld.enable = true;
+    kdeconnect.enable = true;
+    solaar.enable = true;
   };
 
   # Portal Configuration для Wayland
@@ -401,7 +405,7 @@ in {
 
   # Включаем seatd для управления сессиями
   services.seatd.enable = true;
-  services.happ.enable = true;
+  # services.happ.enable = true;
 
   services.syncthing = {
     enable = true;

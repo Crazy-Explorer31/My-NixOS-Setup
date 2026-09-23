@@ -1,10 +1,9 @@
 {
   description = "Stepan's NixOS setup";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     alejandra.url = "github:kamadorueda/alejandra";
@@ -25,7 +24,6 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     alejandra,
     zapret-discord-youtube,
@@ -36,16 +34,10 @@
     system = "x86_64-linux";
     host = "excalibur";
     username = "stepan";
-    overlay-unstable = final: prev: {
-      unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    };
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [overlay-unstable];
+      # overlays = [overlay-unstable];
     };
   in {
     nixosConfigurations.excalibur = nixpkgs.lib.nixosSystem {
@@ -78,20 +70,6 @@
             freqs-vis.packages.${system}.default
           ];
         }
-        ({
-          config,
-          pkgs,
-          ...
-        }: {
-          nixpkgs.overlays = [overlay-unstable];
-        })
-        # zapret-discord-youtube.nixosModules.default
-        # {
-        #   services.zapret-discord-youtube = {
-        #     enable = true;
-        #     config = "general (FAKE_TLS_AUTO_ALT2)"; # Или любой конфиг из папки configs (general, general(ALT), general (SIMPLE FAKE) и т.д.)
-        #   };
-        # }
       ];
     };
 
@@ -104,7 +82,7 @@
           home = {
             username = "stepan";
             homeDirectory = "/home/stepan";
-            stateVersion = "25.11";
+            stateVersion = "26.05";
           };
         }
       ];

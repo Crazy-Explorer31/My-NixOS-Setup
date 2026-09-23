@@ -20,7 +20,7 @@
     ./modules/system/nh.nix
     ./modules/system/overlays.nix
     ./modules/system/vm.nix
-    ./modules/system/happ-module.nix
+    # ./modules/system/happ-module.nix
 
     ./modules/hardware/amd-drivers.nix
     ./modules/hardware/nvidia-drivers.nix
@@ -35,6 +35,7 @@
     "docker-28.5.2"
     "electron-38.8.4"
     "electron-39.8.10"
+    "electron-41.10.6"
   ];
   # Boot
   boot.loader.systemd-boot.enable = false;
@@ -135,8 +136,8 @@
     };
   };
 
-  # time.timeZone = "Europe/Moscow";
-  time.timeZone = "Asia/Krasnoyarsk";
+  time.timeZone = "Europe/Moscow";
+  # time.timeZone = "Asia/Krasnoyarsk";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -276,7 +277,7 @@
     };
     gnome.evolution-data-server.enable = true;
     jellyfin.enable = true;
-    happ.enable = true;
+    # happ.enable = true;
   };
   # environment.etc."v2raya/config.json".source = ./UserConfigs/v2ray_config.json;
 
@@ -312,7 +313,6 @@
   # Extra Logitech Support
   hardware = {
     logitech.wireless.enable = false;
-    logitech.wireless.enableGraphical = false;
   };
 
   services.pulseaudio.enable = false; # stable branch
@@ -367,23 +367,14 @@
         "nix-command"
         "flakes"
       ];
-      # substituters = ["https://noctalia.cachix.org" "https://cache.nixos-cuda.org"];
-      substituters = lib.mkBefore [
-        "https://cache.garnix.io?priority=40"
-        "https://cache.m7.rs?priority=39"
-        "https://cache.nixos.org?priority=38"
-        "https://cache.soopy.moe?priority=37"
-        "https://chaotic-nyx.cachix.org?priority=35"
-        "https://colmena.cachix.org?priority=34"
-        "https://hyprland.cachix.org?priority=33"
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=32"
-        "https://mirrors.ustc.edu.cn/nix-channels/store?priority=31"
-        "https://nix-community.cachix.org?priority=30"
-        "https://nix-gaming.cachix.org?priority=29"
-        "https://nixos-cache-proxy.cofob.dev?priority=28"
-        "https://nixos.snix.store?priority=27"
+      substituters = lib.mkForce [
+        "https://cache.nixos.org"
+        "https://nixos.snix.store"
       ];
-      # trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="];
+
+      trusted-public-keys = lib.mkForce [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      ];
     };
     gc = {
       automatic = true;

@@ -476,6 +476,7 @@ binds {
     Ctrl+Alt+K { spawn-sh "code ~/my-NixOS"; }
     Ctrl+Alt+J { spawn-sh "~/my-NixOS/UserScripts/CallVSCodeChoice.sh "; }
     Ctrl+Alt+H { spawn-sh "~/my-NixOS/UserScripts/CallVSCodeWithCUDAChoice.sh "; }
+    Ctrl+Alt+U { spawn-sh "alacritty -e ~/my-NixOS/UserScripts/RebuildSystem.sh "; }
 
     Mod+I { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     Mod+P { spawn-sh "qs -c noctalia-shell ipc call plugin:assistant-panel toggle"; }
