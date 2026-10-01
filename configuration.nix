@@ -107,7 +107,7 @@
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
 
-    plymouth.enable = true;
+    # plymouth.enable = true;
   };
 
   # Extra Module Options
@@ -175,22 +175,32 @@
     gvfs.enable = true;
     tumbler.enable = true;
 
-    displayManager.ly = {
+    # displayManager.ly = {
+    #   enable = true;
+    #   settings = {
+    #     animation = "colormix";
+    #     bigclock = true;
+    #     # --- Color Settings (0xAARRGGBB) ---
+    #     # Background color of dialog box (Black)
+    #     bg = "0x00000000";
+    #     # Foreground text color (Cyan: #00FFFF)
+    #     fg = "0x0000FFFF";
+    #     # Border color (Red: #FF0000)
+    #     border_fg = "0x00FF0000";
+    #     # Error message color (Red)
+    #     error_fg = "0x00FF0000";
+    #     # Clock color (Purple: #800080)
+    #     clock_color = "#800080";
+    #   };
+    # };
+    displayManager.noctalia-greeter = {
       enable = true;
       settings = {
-        animation = "colormix";
-        bigclock = true;
-        # --- Color Settings (0xAARRGGBB) ---
-        # Background color of dialog box (Black)
-        bg = "0x00000000";
-        # Foreground text color (Cyan: #00FFFF)
-        fg = "0x0000FFFF";
-        # Border color (Red: #FF0000)
-        border_fg = "0x00FF0000";
-        # Error message color (Red)
-        error_fg = "0x00FF0000";
-        # Clock color (Purple: #800080)
-        clock_color = "#800080";
+        cursor = {
+          theme = "Bibata-Modern-Ice";
+          size = 24;
+          path = "${pkgs.bibata-cursors}/share/icons";
+        };
       };
     };
 
@@ -367,6 +377,7 @@
         "nix-command"
         "flakes"
       ];
+      trusted-users = ["stepan"];
       substituters = lib.mkForce [
         "https://cache.nixos.org"
         "https://nixos.snix.store"

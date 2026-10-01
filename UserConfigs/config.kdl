@@ -92,9 +92,10 @@ layout {
     }
 }
 // spawn-sh-at-startup "qs -c ~/.config/quickshell/DankMaterialShell/"
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && qs -c noctalia-shell ipc call notifications enableDND"
+// spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && noctalia msg notifications enableDND"
 
 spawn-sh-at-startup "wl-paste --watch cliphist store &"
+spawn-sh-at-startup "noctalia"
 
 spawn-sh-at-startup "/home/stepan/my-NixOS/UserScripts/WatchForColorsModifying.sh"
 
@@ -253,8 +254,8 @@ binds {
     // Terminal, App launcher, Screen locker.
     Mod+Shift+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: noctalia-shell-apps" { spawn-sh "qs -c ~/.config/quickshell/noctalia-shell ipc call launcher toggle"; }
-    Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: noctalia-shell-lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+D hotkey-overlay-title="Run an Application: noctalia-shell-apps" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: noctalia-shell-lock" { spawn-sh "noctalia msg session lock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -460,7 +461,7 @@ binds {
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     // Mod+W { toggle-column-tabbed-display; }
-    Mod+W {spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
+    Mod+W {spawn-sh "noctalia msg panel-toggle noctalia/wallhaven:browser"; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
@@ -470,7 +471,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     Ctrl+Alt+Delete { quit; }
-    Ctrl+Alt+P { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Ctrl+Alt+P { spawn-sh "noctalia msg panel-toggle session"; }
 
     // -------------------------SPECTIAL BINDS---------------------
     Ctrl+Alt+K { spawn-sh "code ~/my-NixOS"; }
@@ -478,19 +479,23 @@ binds {
     Ctrl+Alt+H { spawn-sh "~/my-NixOS/UserScripts/CallVSCodeWithCUDAChoice.sh "; }
     Ctrl+Alt+U { spawn-sh "alacritty -e ~/my-NixOS/UserScripts/RebuildSystem.sh "; }
 
-    Mod+I { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
-    Mod+P { spawn-sh "qs -c noctalia-shell ipc call plugin:assistant-panel toggle"; }
+    Mod+I { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+P { spawn-sh "noctalia msg plugin:assistant-panel toggle"; }
 
     Mod+T { spawn "thunar"; }
     Alt+L { spawn-sh "thunar ~/Downloads"; }
     
-    Mod+K { spawn-sh "mousepad --opening-mode=window"; }
+    Mod+K { spawn-sh "noctalia msg panel-toggle noctalia/notes:panel"; }
 
-    Mod+M { spawn-sh "ghostty -e btop"; }
+    Mod+M { spawn-sh "alacritty -e btop"; }
 
-    Mod+C { spawn-sh "cliphist list | rofi -dmenu -i -p 'История буфера' -theme /home/stepan/my-NixOS/UserConfigs/RofiConfig.rasi  | cliphist decode | wl-copy"; }
+    Mod+O {spawn-sh "noctalia msg panel-toggle nightwatch75/todo:panel"; }
+
+    // Mod+C { spawn-sh "cliphist list | rofi -dmenu -i -p 'История буфера' -theme /home/stepan/my-NixOS/UserConfigs/RofiConfig.rasi  | cliphist decode | wl-copy"; }
+    Mod+C { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Ctrl+Alt+M hotkey-overlay-title="Toggle v2rayA" {spawn-sh "kill -USR1 $(cat /tmp/v2raya_daemon.pid)";}
 }
 
-include "./noctalia.kdl"
 
+
+include "noctalia.kdl"

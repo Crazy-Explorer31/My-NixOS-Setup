@@ -76,6 +76,7 @@ in {
 
       # Мультимедиа
       (mpv.override {scripts = [mpvScripts.mpris mpvScripts.cutter mpvScripts.manga-reader];})
+      mpvScripts.mpris
       mpvpaper
       brightnessctl
       cava
@@ -131,6 +132,7 @@ in {
       thunar-archive-plugin
       file-roller
       (thunar.override {thunarPlugins = [thunar-archive-plugin];})
+      yazi
       xarchiver
       unzip
       zip
@@ -196,10 +198,12 @@ in {
       nvtopPackages.full
       direnv
       nix-direnv
+      nix-search-tv
       bluez5
       exfat
       exfatprogs
       heroic
+      netcat
 
       # Сеть
       telegram-desktop
@@ -251,7 +255,9 @@ in {
       yandex-music
       # (inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default)
       noctalia-qs
-      (noctalia-shell.override {calendarSupport = true;})
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # noctalia
+      noctalia-greeter
       wlsunset
       wallust
       cliphist
@@ -261,6 +267,7 @@ in {
       ruff
       audacity
       opencode
+      opencode-desktop
       syncthing
       flameshot
       cpu-x
@@ -286,8 +293,10 @@ in {
       gsl
       fuse
       gtk3
+      gtk4
+      fluent-gtk-theme
       flat-remix-icon-theme # Иконки
-      # bibata-cursors       # Курсоры (раскомментировать если нужно)
+      bibata-cursors
       chromedriver
       vulkan-tools
       tectonic
@@ -300,6 +309,7 @@ in {
       evtest
       networkmanagerapplet
       imagemagick
+      libxcb
       # CUDA stuff
       # cudaPackages.cudatoolkit
       # cudaPackages.cudnn
