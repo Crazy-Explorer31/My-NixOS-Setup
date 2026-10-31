@@ -14,6 +14,7 @@ in {
   config = mkIf cfg.enable {
     services.xserver.videoDrivers = ["nvidia"];
 
+    hardware.nvidia-container-toolkit.enable = true;
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
@@ -33,7 +34,7 @@ in {
       modesetting.enable = true;
 
       # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-      powerManagement.enable = false;
+      powerManagement.enable = true;
 
       # Fine-grained power management. Turns off GPU when not in use.
       # Experimental and only works on modern Nvidia GPUs (Turing or newer).

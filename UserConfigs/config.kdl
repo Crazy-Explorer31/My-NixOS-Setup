@@ -95,13 +95,13 @@ layout {
 // spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && noctalia msg notifications enableDND"
 
 spawn-sh-at-startup "wl-paste --watch cliphist store &"
-spawn-sh-at-startup "noctalia"
+spawn-sh-at-startup "noctalia && noctalia msg panel-toggle launcher && noctalia msg panel-toggle launcher"
 
 spawn-sh-at-startup "/home/stepan/my-NixOS/UserScripts/WatchForColorsModifying.sh"
 
 spawn-sh-at-startup "nix-shell /home/stepan/shell.nix --run 'uv run --directory /home/stepan jupyter lab --no-browser'"
 // в /home/stepan были после выполнены `uv venv`, 
-//                               `uv pip install ipykernel`
+//                               `uv pip inuv run --directory /home/stepan python /home/stepan/my-NixOS/UserScripts/v2raya_daemon.pystall ipykernel`
 //                               `uv run ipython kernel install --user --env VIRTUAL_ENV $(pwd)/.venv --name="base_kernel"`
 // и прочие `uv pip install`'ы
 spawn-sh-at-startup "uv run --directory /home/stepan python /home/stepan/my-NixOS/UserScripts/v2raya_daemon.py"
@@ -116,7 +116,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // https://yalter.githubioniri/Configuration:-Animations
 animations {
-    //off
+    off
     //slowdown 3.0
 }
 
@@ -211,7 +211,7 @@ window-rule {
     default-column-width { proportion 0.3; }
     default-window-height { proportion 0.3; }
     open-floating true
-    opacity 0.8
+    opacity 1.0
 }
 
 window-rule {
@@ -226,6 +226,13 @@ window-rule {
 
 window-rule {
     match app-id=r#"^thunar$"#
+    open-maximized true
+}
+
+window-rule {
+    match title="DaVinci Resolve"
+    // open-floating = false
+    // open-fullscreen true
     open-maximized true
 }
 
@@ -467,6 +474,10 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
+    Shift+Print { spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle region"; }
+    Mod+Print { spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle portal"; }
+    // saved videos in ~/Videos/Recordings
+
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+P { power-off-monitors; }
 
@@ -478,12 +489,18 @@ binds {
     Ctrl+Alt+J { spawn-sh "~/my-NixOS/UserScripts/CallVSCodeChoice.sh "; }
     Ctrl+Alt+H { spawn-sh "~/my-NixOS/UserScripts/CallVSCodeWithCUDAChoice.sh "; }
     Ctrl+Alt+U { spawn-sh "alacritty -e ~/my-NixOS/UserScripts/RebuildSystem.sh "; }
+    Ctrl+Alt+Y { spawn-sh "alacritty -e ~/my-NixOS/UserScripts/RebuildHomeManager.sh "; }
 
     Mod+I { spawn-sh "noctalia msg settings-toggle"; }
-    Mod+P { spawn-sh "noctalia msg plugin:assistant-panel toggle"; }
 
-    Mod+T { spawn "thunar"; }
-    Alt+L { spawn-sh "thunar ~/Downloads"; }
+    Mod+Shift+T { spawn "thunar"; }
+    Mod+Shift+D { spawn-sh "~/my-NixOS/UserScripts/RunResolve.sh"; }
+    Mod+Ctrl+D { spawn-sh "~/my-NixOS/UserScripts/PrepareResolveProject.sh"; }
+    Mod+T { spawn-sh "alacritty -e yazi"; }
+    Mod+P { spawn-sh "tauon"; }
+
+    // Alt+L { spawn-sh "thunar ~/Downloads"; }
+    Alt+L { spawn-sh "alacritty -e yazi ~/Downloads"; }
     
     Mod+K { spawn-sh "noctalia msg panel-toggle noctalia/notes:panel"; }
 

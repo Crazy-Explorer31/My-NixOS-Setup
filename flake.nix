@@ -86,7 +86,7 @@
           home = {
             username = "stepan";
             homeDirectory = "/home/stepan";
-            stateVersion = "26.05";
+            stateVersion = "26.11";
           };
         }
       ];

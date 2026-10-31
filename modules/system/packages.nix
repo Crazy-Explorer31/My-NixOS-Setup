@@ -132,16 +132,24 @@ in {
       thunar-archive-plugin
       file-roller
       (thunar.override {thunarPlugins = [thunar-archive-plugin];})
-      yazi
+      # yazi
       xarchiver
       unzip
       zip
+      unar
+      mediainfo
+      mdcat
       unrar
+      _7zz
+      poppler-utils
+      fd
+      zoxide
+      resvg
 
       # Офис и документы
       evince
       libreoffice
-      apostrophe
+      # apostrophe
       pdfarranger
       stirling-pdf
       # Typst
@@ -165,8 +173,8 @@ in {
       fourmolu
       ormolu
       haskell-language-server
-      R
-      rstudio
+      # R
+      # rstudio
       gcc
       gdb
       cmake
@@ -202,7 +210,7 @@ in {
       bluez5
       exfat
       exfatprogs
-      heroic
+      # heroic
       netcat
 
       # Сеть
@@ -221,33 +229,38 @@ in {
       # Виртуализация и контейнеры
       docker
       docker-compose
+      distrobox
 
       # Графические приложения
       gimp
       davinci-resolve
+      # kdePackages.kdenlive
       obs-studio
       peek
       upscayl
       losslesscut-bin
       drawing
-      amberol
+      tauon
       scantailor-advanced
+      gpu-screen-recorder
 
       # Игры
       steam
+      # lutris
       endless-sky
       gamescope-wsi
 
       # Wine
       wine
       wineWow64Packages.stableFull
-      wineWow64Packages.waylandFull
       winetricks
-      bottles
+      # bottles
+      protontricks
 
       # Другие утилиты
       zoom-us
       asciinema
+      file
       pomodoro-gtk
       czkawka-full
       ollama
@@ -266,15 +279,18 @@ in {
       black
       ruff
       audacity
-      opencode
-      opencode-desktop
+      # opencode
+      # opencode-desktop
+      claude-code
+      codex
       syncthing
       flameshot
       cpu-x
       nsxiv
       localsend
       yandex-cloud
-      rustup
+      fish
+      numlockx
 
       # Библиотеки
       glibc
@@ -316,8 +332,9 @@ in {
       # cudaPackages.cuda_cudart
 
       # Rust stuff
-      cargo
-      rustc
+      # cargo
+      # rustc
+      # rustup
       rustfmt
       rust-analyzer
       rustlings
@@ -395,12 +412,25 @@ in {
     nix-ld.enable = true;
     kdeconnect.enable = true;
     solaar.enable = true;
+    localsend = {
+      enable = true;
+      openFirewall = true;
+    };
+    gamemode.enable = true;
+    # yazi = {
+    #   enable = true;
+    #   # plugins = with pkgs.yaziPlugins; {
+    #   #   # Plugins that don't call setup() can be configured in one line
+    #   #   smart-enter = smart-enter;
+    #   #   chmod = chmod;
+    #   # };
+    # };
   };
 
   # Portal Configuration для Wayland
   xdg.portal = {
     enable = true;
-    wlr.enable = false;
+    wlr.enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-wlr

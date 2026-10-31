@@ -132,7 +132,8 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [20170 20171 20172];
+      allowedTCPPorts = [20170 20171 20172 53317];
+      allowedUDPPorts = [53317];
     };
   };
 
@@ -288,6 +289,7 @@
     gnome.evolution-data-server.enable = true;
     jellyfin.enable = true;
     # happ.enable = true;
+    displayManager.sddm.autoNumlock = true;
   };
   # environment.etc."v2raya/config.json".source = ./UserConfigs/v2ray_config.json;
 
@@ -433,6 +435,7 @@
   hardware.xone.enable = true;
 
   virtualisation.docker.enable = true;
+  virtualisation.podman.enable = true;
 
   security.wrappers = {
     dumpcap = {
