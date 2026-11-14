@@ -44,7 +44,7 @@ in {
       cpufrequtils
       duf
       findutils
-      # ffmpeg
+      ffmpeg
       glib
       gsettings-qt
       killall
@@ -69,6 +69,7 @@ in {
 
       # Терминалы и оболочки
       btop
+      tmux
 
       # Браузеры
       firefox
@@ -76,7 +77,7 @@ in {
 
       # Мультимедиа
       (mpv.override {scripts = [mpvScripts.mpris mpvScripts.cutter mpvScripts.manga-reader];})
-      mpvScripts.mpris
+      # mpvScripts.mpris
       mpvpaper
       brightnessctl
       cava
@@ -166,7 +167,6 @@ in {
 
       # Разработка
       vscode-fhs
-      vscodium
       jdk21_headless
       nodejs_24
       ghc
@@ -212,6 +212,8 @@ in {
       exfatprogs
       # heroic
       netcat
+      bitwarden-cli
+      bitwarden-desktop
 
       # Сеть
       telegram-desktop
@@ -266,10 +268,7 @@ in {
       ollama
       yandex-disk
       yandex-music
-      # (inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default)
-      noctalia-qs
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-      # noctalia
       noctalia-greeter
       wlsunset
       wallust

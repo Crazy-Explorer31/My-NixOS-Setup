@@ -17,11 +17,7 @@ fi
 # 3. Проверка наличия flake.nix в выбранной директории
 if [ -f "$directory/flake.nix" ]; then
     echo "Найден flake.nix. Запуск nix develop..."
-    cd "$directory" && nix develop \
-        --option extra-substituters "" \
-        --option substituters "https://cache.nixos.org/" \
-        --option trusted-public-keys "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" \
-        --command code .
+    cd "$directory" && alacritty -e ~/my-NixOS/UserScripts/RunNixDevelop.sh
     exit 0
 fi
 

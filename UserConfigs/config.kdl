@@ -55,6 +55,12 @@ layout {
         proportion 0.66667
         proportion 1.0
     }
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
 
     default-column-width {}
 
@@ -155,6 +161,14 @@ workspace "9" {
 window-rule {
     match title="Firefox"
     open-on-workspace "2"
+    open-maximized true
+    focus-ring {
+        off
+    }
+}
+
+window-rule {
+    match title="Noctalia Settings"
     open-maximized true
     focus-ring {
         off
@@ -503,6 +517,7 @@ binds {
     Alt+L { spawn-sh "alacritty -e yazi ~/Downloads"; }
     
     Mod+K { spawn-sh "noctalia msg panel-toggle noctalia/notes:panel"; }
+    Mod+L { spawn-sh "noctalia msg panel-toggle nilsonlinux/world-radio:Panel"; }
 
     Mod+M { spawn-sh "alacritty -e btop"; }
 

@@ -19,8 +19,6 @@
 
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
 
-    zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
-
     poly-mult.url = "github:Crazy-Explorer31/poly-mult";
     freqs-vis.url = "github:Crazy-Explorer31/freqs-vis";
   };
@@ -30,7 +28,6 @@
     nixpkgs,
     home-manager,
     alejandra,
-    zapret-discord-youtube,
     poly-mult,
     freqs-vis,
     ...
