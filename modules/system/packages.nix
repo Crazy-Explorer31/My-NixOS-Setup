@@ -77,7 +77,7 @@ in {
 
       # Мультимедиа
       (mpv.override {scripts = [mpvScripts.mpris mpvScripts.cutter mpvScripts.manga-reader];})
-      # mpvScripts.mpris
+      mpvScripts.mpris
       mpvpaper
       brightnessctl
       cava

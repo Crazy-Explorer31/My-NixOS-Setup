@@ -67,6 +67,11 @@
       "nowatchdog"
       "modprobe.blacklist=sp5100_tco" # watchdog for AMD
       "modprobe.blacklist=iTCO_wdt" # watchdog for Intel
+      # Plymouth
+      "nvidia-drm.modeset=1"
+      "splash"
+      "quiet"
+      "loglevel=4"
     ];
 
     # This is for OBS Virtual Cam Support
@@ -82,7 +87,13 @@
         "usbhid"
         "sd_mod"
       ];
-      kernelModules = [];
+      kernelModules = [
+        "amdgpu"
+        "nvidia"
+        "nvidia_modeset"
+        "nvidia_uvm"
+        "nvidia_drm"
+      ];
     };
 
     # Needed For Some Steam Games
@@ -108,7 +119,10 @@
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
 
-    # plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      theme = "fade-in";
+    };
   };
 
   # Extra Module Options
@@ -214,7 +228,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      jack.enable = true;
       wireplumber.enable = true;
     };
 
@@ -408,6 +421,7 @@
   # OpenGL
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
   # For Electron apps to use wayland
