@@ -1,0 +1,100 @@
+@page {
+  size: 122mm 90mm; /* Горизонтальный формат под экран 6" (1024x758) */
+  margin: 4mm 6mm;  /* Чуть больше по бокам для удобного хвата и меньше сверху/снизу */
+}
+
+body {
+  font-family: "PT Serif", "DejaVu Serif", "DejaVu Sans", sans-serif;
+  font-size: 10pt;   /* В альбомном режиме 10pt оптимально по количеству строк на экране */
+  line-height: 1.3;  /* Чуть плотнее межстрочный интервал, чтобы на экран влезало больше текста */
+  color: #000000;
+  background: #ffffff;
+  word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "DejaVu Sans", sans-serif;
+  font-weight: bold;
+  line-height: 1.15;
+  margin-top: 0.7em;
+  margin-bottom: 0.35em;
+  page-break-after: avoid;
+}
+
+h1 { font-size: 1.35em; border-bottom: 1px solid #000; padding-bottom: 0.15em; }
+h2 { font-size: 1.2em; border-bottom: 1px solid #666; padding-bottom: 0.15em; }
+h3 { font-size: 1.05em; }
+
+p, ul, ol, blockquote, table, pre {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+ul, ol {
+  padding-left: 1.4em;
+}
+
+code {
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 8.5pt;
+  background-color: #eeeeee;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 8pt;
+  line-height: 1.25;
+  background-color: #f4f4f4;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 5px 7px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  page-break-inside: avoid;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 3px solid #333333;
+  padding-left: 0.8em;
+  margin-left: 0;
+  color: #222222;
+  font-style: italic;
+  page-break-inside: avoid;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 8.5pt;
+  page-break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid #666666;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+th {
+  background-color: #eaeaea;
+  font-weight: bold;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #666666;
+  margin: 0.8em 0;
+}
+
+img {
+  max-width: 100%;
+  max-height: 75mm; /* Ограничение высоты картинок, чтобы не уходили на следующую страницу */
+  height: auto;
+}

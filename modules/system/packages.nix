@@ -23,7 +23,6 @@
       pyarrow
       pygobject3
       fastapi
-      redis
       pytest
     ]);
 in {
@@ -150,6 +149,9 @@ in {
       # Офис и документы
       evince
       libreoffice
+      pandoc
+      python3Packages.weasyprint
+      dejavu_fonts
       # apostrophe
       pdfarranger
       stirling-pdf
@@ -215,6 +217,9 @@ in {
       bitwarden-cli
       bitwarden-desktop
 
+      # Базы данных
+      cassandra
+
       # Сеть
       telegram-desktop
       qbittorrent
@@ -267,7 +272,9 @@ in {
       czkawka-full
       ollama
       yandex-disk
+      rclone
       yandex-music
+      spotify
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       noctalia-greeter
       wlsunset
@@ -325,6 +332,7 @@ in {
       networkmanagerapplet
       imagemagick
       libxcb
+      foliate
       # CUDA stuff
       # cudaPackages.cudatoolkit
       # cudaPackages.cudnn
@@ -374,7 +382,22 @@ in {
 
   programs = {
     niri.enable = true;
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      preferences = {
+        # Принудительное аппаратное декодирование (для актуальных версий Firefox 137+)
+        "media.hardware-video-decoding.force-enabled" = true;
+        "media.ffmpeg.vaapi.enabled" = true;
+        "media.rdd-ffmpeg.enabled" = true;
+
+        # Ускорение рендеринга и DMA-BUF
+        "gfx.x11-egl.force-enabled" = true;
+        "widget.dmabuf.force-enabled" = true;
+
+        # Обязательно отключаем AV1, так как GTX 1650 не поддерживает его аппаратно
+        "media.av1.enabled" = false;
+      };
+    };
     git.enable = true;
     steam = {
       enable = true;

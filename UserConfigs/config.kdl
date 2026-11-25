@@ -101,16 +101,16 @@ layout {
 // spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/ && sleep 5 && noctalia msg notifications enableDND"
 
 spawn-sh-at-startup "wl-paste --watch cliphist store &"
-spawn-sh-at-startup "noctalia && noctalia msg panel-toggle launcher && noctalia msg panel-toggle launcher"
+spawn-sh-at-startup "noctalia"
 
-spawn-sh-at-startup "/home/stepan/my-NixOS/UserScripts/WatchForColorsModifying.sh"
+// spawn-sh-at-startup "/home/stepan/my-NixOS/UserScripts/WatchForColorsModifying.sh"
 
-spawn-sh-at-startup "nix-shell /home/stepan/shell.nix --run 'uv run --directory /home/stepan jupyter lab --no-browser'"
+// spawn-sh-at-startup "nix-shell /home/stepan/shell.nix --run 'uv run --directory /home/stepan jupyter lab --no-browser'"
 // в /home/stepan были после выполнены `uv venv`, 
 //                               `uv pip inuv run --directory /home/stepan python /home/stepan/my-NixOS/UserScripts/v2raya_daemon.pystall ipykernel`
 //                               `uv run ipython kernel install --user --env VIRTUAL_ENV $(pwd)/.venv --name="base_kernel"`
 // и прочие `uv pip install`'ы
-spawn-sh-at-startup "uv run --directory /home/stepan python /home/stepan/my-NixOS/UserScripts/v2raya_daemon.py"
+spawn-sh-at-startup "python /home/stepan/my-NixOS/UserScripts/v2raya_daemon.py"
 
 
 hotkey-overlay {
@@ -169,6 +169,15 @@ window-rule {
 
 window-rule {
     match title="Noctalia Settings"
+    open-maximized true
+    focus-ring {
+        off
+    }
+}
+
+window-rule {
+    match app-id="spotify"
+    open-on-workspace "9"
     open-maximized true
     focus-ring {
         off
@@ -309,6 +318,8 @@ binds {
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
     Mod+A repeat=false { toggle-overview; }
+
+    Mod+S {spawn-sh "noctalia msg panel-toggle control-center calendar"; }
 
     Mod+Q repeat=false { close-window; }
 
@@ -488,8 +499,8 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    Shift+Print { spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle region"; }
-    Mod+Print { spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle portal"; }
+    Shift+Print { spawn-sh "~/my-NixOS/UserScripts/ToggleRecorderRegion.sh"; }
+    Mod+Print { spawn-sh "~/my-NixOS/UserScripts/ToggleRecorderPortal.sh"; }
     // saved videos in ~/Videos/Recordings
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }

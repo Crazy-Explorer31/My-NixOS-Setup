@@ -121,7 +121,7 @@
 
     plymouth = {
       enable = true;
-      theme = "fade-in";
+      theme = "solar";
     };
   };
 

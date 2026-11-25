@@ -76,6 +76,8 @@ in {
         alias nrs='sudo nixos-rebuild switch --flake .'
         alias hs='home-manager switch --flake .#stepan'
         alias nr='niri validate'
+        alias md2pb='/home/stepan/my-NixOS/UserScripts/ConvertMDtoPB.sh'
+        alias md2epub='/home/stepan/my-NixOS/UserScripts/ConvertMDtoEPUB.sh'
 
         # Функция для поиска с fzf и ripgrep
         fzf-rg-search() {
